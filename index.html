@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECEg-6101: Research Methods in Engineering</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Academic Blue */
+            --secondary-color: #f4f4f4;
+            --accent-color: #d9534f;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 0.5rem 0 0; font-size: 1.2rem; opacity: 0.9; }
+
+        /* Navigation */
+        nav {
+            background: #333;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: var(--accent-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        h3 { color: #555; margin-top: 1.5rem; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) { background-color: var(--secondary-color); }
+
+        /* Cards for Assessments */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .card h3 { margin-top: 0; color: var(--primary-color); }
+        .weight { font-size: 1.5rem; font-weight: bold; color: var(--accent-color); float: right; }
+
+        /* Code/Template Blocks */
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .btn:hover { background: #002244; }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            nav ul { flex-direction: column; text-align: center; }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>ECEg-6101</h1>
+            <p>Research Methods in Engineering</p>
+            <p>M.Sc. in Communication Engineering | Year 1, Semester II</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#assessments">Assessments</a></li>
+            <li><a href="#resources">Resources & Templates</a></li>
+            <li><a href="#ethics">Ethics Case Study</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- OVERVIEW SECTION -->
+        <section id="overview">
+            <h2>Course Overview</h2>
+            <p>This course provides graduate students with the fundamental skills necessary to conduct rigorous engineering research. It covers the entire research lifecycle: from identifying research problems and conducting comprehensive literature reviews to designing experiments/simulations, analyzing data, adhering to ethical standards, and communicating findings.</p>
+            
+            <h3>Key Competencies</h3>
+            <ul>
+                <li>Formulate clear, testable research problems in Communication Engineering.</li>
+                <li>Conduct systematic literature reviews using IEEE Xplore, Scopus, etc.</li>
+                <li>Design robust simulation-based or experimental methodologies.</li>
+                <li>Apply statistical analysis to interpret engineering data.</li>
+                <li>Adhere to professional research ethics (Plagiarism, Data Integrity).</li>
+                <li>Develop a high-quality Thesis Proposal.</li>
+            </ul>
+
+            <h3>Instructor & Contact</h3>
+            <p><strong>Instructor:</strong> [Your Name]<br>
+            <strong>Email:</strong> [Your Email]<br>
+            <strong>Office Hours:</strong> [Time/Location]</p>
+        </section>
+
+        <!-- SCHEDULE SECTION -->
+        <section id="schedule">
+            <h2>Weekly Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Topic</th>
+                        <th>Key Activities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Intro to Engineering Research</strong><br>Concepts, Philosophy, Design vs. Research</td>
+                        <td>Syllabus Review</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Types of Research</strong><br>Quantitative, Simulation, Experimental</td>
+                        <td>Submit <em>Topic Concept Note</em></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Literature Review</strong><br>Databases, Search Strategies, Reference Managers</td>
+                        <td>Workshop: Zotero/Mendeley</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Research Design</strong><br>Variables, Hypothesis, Validity/Reliability</td>
+                        <td>Start Lit Review Matrix</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Data Analysis</strong><br>Statistics, Visualization, Simulation Validation</td>
+                        <td>Submit Lit Review Matrix</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Research Ethics</strong><br>Plagiarism, Authorship, Data Integrity</td>
+                        <td>Case Study Discussion</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Proposal Writing I</strong><br>Problem Statement, Objectives, Methodology</td>
+                        <td>Proposal Draft Due</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Proposal Writing II</strong><br>Work Plan, Budget, Peer Review</td>
+                        <td>Peer Review Workshop</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>Technical Reporting</strong><br>IMRaD Structure, IEEE Style</td>
+                        <td>Article Review Assigned</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>Presentation Skills</strong><br>Visual Aids, Public Speaking, Q&A</td>
+                        <td>Mock Presentations</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><strong>Final Proposal Presentations</strong></td>
+                        <td>Student Presentations</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td><strong>Final Exam & Course Wrap-up</strong></td>
+                        <td>Written Exam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ASSESSMENTS SECTION -->
+        <section id="assessments">
+            <h2>Assessment & Grading</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="weight">40%</span>
+                    <h3>Research Proposal</h3>
+                    <p>A complete thesis proposal (10-15 pages) including problem statement, lit review, methodology, and work plan. Includes a 15-minute oral defense.</p>
+                </div>
+                <div class="card">
+                    <span class="weight">30%</span>
+                    <h3>Critical Article Review</h3>
+                    <p>A 2-3 page critical analysis of a recent (last 3 years) high-impact IEEE journal article. Focus on methodology critique, not just summary.</p>
+                </div>
+                <div class="card">
+                    <span class="weight">30%</span>
+                    <h3>Written Final Exam</h3>
+                    <p>Closed-book exam testing conceptual understanding of research design, ethics, statistics, and methodology.</p>
+                </div>
+            </div>
+            
+            <h3>Policy</h3>
+            <ul>
+                <li><strong>Attendance:</strong> 80% mandatory. Missing >20% results in failure.</li>
+                <li><strong>Late Submissions:</strong> 10% penalty per day.</li>
+                <li><strong>Academic Integrity:</strong> Zero tolerance for plagiarism.</li>
+            </ul>
+        </section>
+
+        <!-- RESOURCES SECTION -->
+        <section id="resources">
+            <h2>Resources & Templates</h2>
+            <p>Use these templates for your assignments. Download them and fill them out.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>1. Topic Concept Note</h3>
+                    <p>Submit in Week 2. Use this to pitch your thesis idea.</p>
+                    <pre>
+Sections:
+1. Background & Context 
+2. Problem Statement 
+3. Research Questions
+4. Proposed Methodology 
+5. Feasibility Check
+                    </pre>
+                </div>
+                <div class="card">
+                    <h3>2. Literature Review Matrix</h3>
+                    <p>Excel sheet to organize your reading. Submit in Week 5.</p>
+                    <pre>
+Columns:
+- Citation
+- Research Problem
+- Methodology
+- Key Findings
+- Limitations/Gaps
+- Relevance to My Work
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETHICS CASE STUDY -->
+        <section id="ethics">
+            <h2>Ethics Case Study: "The Perfect Plot"</h2>
+            <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin-bottom: 20px;">
+                <strong>Scenario:</strong> Alex, an M.Sc. student, runs simulations for his RIS beamforming algorithm. His average result (17.9 bps/Hz) is slightly worse than the state-of-the-art (18.2 bps/Hz). However, one specific random seed gave him 19.1 bps/Hz. He considers reporting only that best seed to impress his supervisor.
+            </div>
+            
+            <h3>Discussion Questions</h3>
+            <ol>
+                <li>Is reporting the "best-case" seed without context ethical? Why or why not?</li>
+                <li>What is the difference between <strong>Fabrication</strong> and <strong>Falsification</strong>?</li>
+                <li>How should Alex present his results honestly if they don't beat the baseline?</li>
+            </ol>
+            
+            <p><em>We will discuss this case in class during Week 6. Be prepared to share your thoughts.</em></p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ECEg-6101 Course Team. Hosted on GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
