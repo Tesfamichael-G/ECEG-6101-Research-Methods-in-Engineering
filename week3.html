@@ -195,8 +195,24 @@
 
         </div>
     </div>
+<!-- Core reveal.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
 
-    <!-- Scripts <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+<!-- Highlight plugin (this is required) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+
+<!-- Your initialization -->
+<script>
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide',
+        plugins: [ RevealHighlight ]   // ← Now it will be defined
+    });
+</script>
+    <!-- Scripts <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> >
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cloudflare.com"></script>
     
@@ -209,6 +225,6 @@
             transition: 'slide', 
             plugins: [ RevealHighlight ]
         });
-    </script>
+    </script>--
 </body>
 </html>
