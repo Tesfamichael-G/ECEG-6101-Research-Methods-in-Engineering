@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ECEG 6101 – Week 2: Advanced Literature Review Strategies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f7fc;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #0a2a3b;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        .hero {
+            background: linear-gradient(135deg, #0b3b4f, #1b5a7a);
+            color: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .badge {
+            background: #ffb347;
+            color: #1e2a3a;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-top: 0.75rem;
+        }
+
+        /* layout grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+            color: #1e5a74;
+        }
+
+        /* interactive elements */
+        button, .btn {
+            background: #2c7da0;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        button:hover {
+            background: #1f5e7a;
+            transform: scale(0.98);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin: 0.5rem 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .operator-panel {
+            background: #eef2ff;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .bool-example {
+            font-family: monospace;
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .search-builder-output {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-family: monospace;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.8rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #2c7da0;
+            border-radius: 20px;
+            transition: width 0.3s;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: #2c7da0;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .quiz-option {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 0.8rem;
+            margin: 0.6rem 0;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .quiz-option.selected {
+            background: #d9eef7;
+            border-color: #2c7da0;
+        }
+
+        .feedback-correct { color: #15803d; font-weight: 500; }
+        .feedback-wrong { color: #b91c1c; font-weight: 500; }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #5b6e8c;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>📚 Literature Review Masterclass</h1>
+        <p>Systematic, reproducible, and critical – the heart of engineering research.</p>
+        <div class="badge">Week 2 · ECEG 6101 · Interactive Deep Dive</div>
+    </div>
+
+    <!-- 2-col layout: left = strategy builder + bool, right = databases + zotero -->
+    <div class="grid-2">
+        <!-- Left column: Search strategy builder -->
+        <div class="card">
+            <h2>🔍 1. Build a Boolean Search String</h2>
+            <p>Combine keywords with <strong>AND, OR, NOT</strong> for precise IEEE / Scopus queries.</p>
+            <div class="operator-panel">
+                <label>🔹 Core concept A: <input type="text" id="conceptA" placeholder="e.g., beamforming" value="beamforming"></label>
+                <label>🔹 Concept B (synonyms): <input type="text" id="conceptB" placeholder="e.g., precoding, MIMO" value="precoding OR MIMO"></label>
+                <label>🔹 Context / NOT term: <input type="text" id="notTerm" placeholder="e.g., mmWave" value="mmWave"></label>
+                <button id="buildSearchBtn">✨ Generate search string</button>
+                <div class="search-builder-output" id="searchOutput">
+                    (beamforming) AND (precoding OR MIMO) NOT mmWave
+                </div>
+                <small>💡 Tip: Use quotation marks for phrases: "channel estimation"</small>
+            </div>
+
+            <h3>📖 Boolean Operator Trainer</h3>
+            <p>Which operator <strong>narrows</strong> results the most?</p>
+            <div style="display: flex; gap: 1rem; margin: 0.5rem 0;">
+                <button id="boolAndBtn" class="btn" style="background:#256f8a;">AND</button>
+                <button id="boolOrBtn" class="btn" style="background:#256f8a;">OR</button>
+                <button id="boolNotBtn" class="btn" style="background:#256f8a;">NOT</button>
+            </div>
+            <div id="boolFeedback" class="search-builder-output" style="background:#f9f3e3;">Click an operator to see its effect.</div>
+        </div>
+
+        <!-- Right column: Database + Zotero interactive -->
+        <div class="card">
+            <h2>📡 2. Choose Right Database</h2>
+            <div id="databaseSelector">
+                <div class="quiz-option" data-db="ieee">✅ IEEE Xplore – Best for electrical engineering & communications</div>
+                <div class="quiz-option" data-db="scopus">✅ Scopus – Multidisciplinary, citation tracking</div>
+                <div class="quiz-option" data-db="arxiv">📄 arXiv – Preprints, fast but not peer-reviewed</div>
+                <div class="quiz-option" data-db="gs">🌐 Google Scholar – Broad, but less reproducibility</div>
+            </div>
+            <div id="dbRecommendation" style="margin-top: 1rem; font-style: italic;"></div>
+
+            <h3 style="margin-top: 1.5rem;">🗂️ Zotero Workflow Checklist</h3>
+            <div id="zoteroChecklist">
+                <div class="checklist-item"><input type="checkbox" class="zotero-chk"> Install Zotero Connector (browser extension)</div>
+                <div class="checklist-item"><input type="checkbox" class="zotero-chk"> Create folder by research topic</div>
+                <div class="checklist-item"><input type="checkbox" class="zotero-chk"> Import PDFs & extract metadata</div>
+                <div class="checklist-item"><input type="checkbox" class="zotero-chk"> Annotate and tag key claims</div>
+                <div class="checklist-item"><input type="checkbox" class="zotero-chk"> Use “Better BibTeX” for LaTeX export</div>
+                <div class="checklist-item"><input type="checkbox" class="zotero-chk"> Share group library with supervisor</div>
+            </div>
+            <div class="progress-bar"><div id="zoteroFill" class="progress-fill"></div></div>
+            <p id="zoteroMsg" style="font-size:0.85rem;"></p>
+        </div>
+    </div>
+
+    <!-- Second row: Systematic review steps & critical appraisal + concept map builder -->
+    <div class="grid-2">
+        <div class="card">
+            <h2>📋 3. Systematic Review Workflow (PRISMA-like)</h2>
+            <div class="timeline">
+                <div class="timeline-step"><span class="step-number">1</span> <strong>Formulate research question</strong> (PICO framework)</div>
+                <div class="timeline-step"><span class="step-number">2</span> <strong>Select databases & search strategy</strong> – use Boolean strings</div>
+                <div class="timeline-step"><span class="step-number">3</span> <strong>Screen titles/abstracts</strong> – inclusion/exclusion criteria</div>
+                <div class="timeline-step"><span class="step-number">4</span> <strong>Full‑text retrieval & quality assessment</strong> (e.g., using CASP)</div>
+                <div class="timeline-step"><span class="step-number">5</span> <strong>Data extraction & synthesis</strong> – create evidence table</div>
+                <div class="timeline-step"><span class="step-number">6</span> <strong>Write review</strong>: thematic, chronological, or methodological</div>
+            </div>
+            <button id="showReviewTip">🎯 Show tip for step 4 (quality assessment)</button>
+            <div id="qualityTip" style="margin-top: 1rem; background: #e6f7f0; border-radius: 1rem; padding: 0.8rem; display: none;">
+                ✅ Use <strong>JBI Critical Appraisal Checklist</strong> or <strong>Cochrane Risk of Bias</strong> for engineering intervention studies.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🧠 4. Concept Map & Synthesis Builder</h2>
+            <p>Build a mental model linking key papers/themes.</p>
+            <div style="background: #f0f4f8; border-radius: 1rem; padding: 1rem;">
+                <label>Theme 1: <input type="text" id="theme1" placeholder="e.g., channel estimation" value="channel estimation"></label>
+                <label>Theme 2: <input type="text" id="theme2" placeholder="e.g., deep learning based" value="deep learning"></label>
+                <label>Theme 3: <input type="text" id="theme3" placeholder="gap: low SNR performance" value="low SNR performance"></label>
+                <button id="synthesizeBtn">🔁 Synthesize research gap</button>
+                <div id="synthesisOutput" class="search-builder-output" style="background: #e9f5fe;">
+                    Click to see a synthesized research direction.
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <h3>📊 Literature Matrix (sample)</h3>
+                <table style="width:100%; border-collapse: collapse; font-size:0.85rem;">
+                    <thead><tr><th>Paper</th><th>Method</th><th>Finding</th><th>Gap</th></tr></thead>
+                    <tbody>
+                        <tr><td>Zhang et al. (2023)</td><td>CNN-based CSI</td><td>+15% accuracy</td><td>High complexity</td></tr>
+                        <tr><td>Lee & Kim (2024)</td><td>Transformer</td><td>Robust to mobility</td><td>No real‑world test</td></tr>
+                        <tr><td colspan="4" style="text-align:center;"><button id="addRowBtn" style="margin:0; padding:0.2rem 1rem;">➕ Add custom row</button></td></tr>
+                    </tbody>
+                </table>
+                <div id="customRowArea"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third row: Interactive quiz and key takeaways -->
+    <div class="card">
+        <h2>📝 5. Literature Review Mastery Quiz</h2>
+        <div id="quizArea"></div>
+        <button id="submitLitQuiz" class="btn">Submit Quiz</button>
+        <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
+    </div>
+
+    <footer>ECEG 6101 – Research Methods in Engineering | Week 2 Interactive Literature Review Lab | Use Zotero & systematic search for your proposal</footer>
+</div>
+
+<script>
+    // ---------- 1. Boolean Search Builder ----------
+    const conceptA = document.getElementById('conceptA');
+    const conceptB = document.getElementById('conceptB');
+    const notTerm = document.getElementById('notTerm');
+    const searchOutput = document.getElementById('searchOutput');
+    const buildBtn = document.getElementById('buildSearchBtn');
+
+    function updateSearchString() {
+        let a = conceptA.value.trim() || "topic";
+        let b = conceptB.value.trim() || "synonym";
+        let not = notTerm.value.trim();
+        let base = `(${a}) AND (${b})`;
+        if (not !== "") base += ` NOT (${not})`;
+        searchOutput.innerText = base;
+    }
+    buildBtn.addEventListener('click', updateSearchString);
+    updateSearchString();
+
+    // Boolean trainer
+    const boolAndBtn = document.getElementById('boolAndBtn');
+    const boolOrBtn = document.getElementById('boolOrBtn');
+    const boolNotBtn = document.getElementById('boolNotBtn');
+    const boolFeedback = document.getElementById('boolFeedback');
+    boolAndBtn.addEventListener('click', () => { boolFeedback.innerHTML = '✅ AND <strong>narrows</strong> search: results contain ALL terms. Essential for precision.'; });
+    boolOrBtn.addEventListener('click', () => { boolFeedback.innerHTML = '🔄 OR <strong>broadens</strong>: results contain ANY term. Use for synonyms/themes.'; });
+    boolNotBtn.addEventListener('click', () => { boolFeedback.innerHTML = '🚫 NOT <strong>excludes</strong> terms, but be cautious – may eliminate relevant papers.'; });
+
+    // ---------- 2. Database selector interactive (highlight & recommendation) ----------
+    const dbOptions = document.querySelectorAll('[data-db]');
+    const dbRecommendation = document.getElementById('dbRecommendation');
+    dbOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+            dbOptions.forEach(o => o.style.background = "#f8fafc");
+            opt.style.background = "#d9eef7";
+            const db = opt.getAttribute('data-db');
+            if (db === 'ieee') dbRecommendation.innerText = "⭐ Best for communication engineering: IEEE Xplore – use advanced search with filters.";
+            else if (db === 'scopus') dbRecommendation.innerText = "⭐ Scopus: great for citation chaining and interdisciplinary topics.";
+            else if (db === 'arxiv') dbRecommendation.innerText = "📡 arXiv: fast preprint access, but remember to check peer-reviewed status later.";
+            else if (db === 'gs') dbRecommendation.innerText = "🌍 Google Scholar: wide coverage, but use with caution for systematic reviews due to poor reproducibility.";
+        });
+    });
+
+    // Zotero checklist progress
+    const zoteroChecks = document.querySelectorAll('.zotero-chk');
+    const zoteroFill = document.getElementById('zoteroFill');
+    const zoteroMsg = document.getElementById('zoteroMsg');
+    function updateZoteroProgress() {
+        const total = zoteroChecks.length;
+        const checked = Array.from(zoteroChecks).filter(cb => cb.checked).length;
+        const percent = (checked / total) * 100;
+        zoteroFill.style.width = `${percent}%`;
+        if (checked === total) zoteroMsg.innerHTML = "🎉 Perfect! You are Zotero-ready. Next step: sync with Overleaf/Word.";
+        else zoteroMsg.innerHTML = `📚 Progress: ${checked}/${total} steps for efficient reference management.`;
+    }
+    zoteroChecks.forEach(cb => cb.addEventListener('change', updateZoteroProgress));
+    updateZoteroProgress();
+
+    // ---------- 3. Systematic review tip ----------
+    const showTipBtn = document.getElementById('showReviewTip');
+    const qualityTipDiv = document.getElementById('qualityTip');
+    showTipBtn.addEventListener('click', () => {
+        if (qualityTipDiv.style.display === 'none' || !qualityTipDiv.style.display) {
+            qualityTipDiv.style.display = 'block';
+            showTipBtn.innerText = 'Hide tip';
+        } else {
+            qualityTipDiv.style.display = 'none';
+            showTipBtn.innerText = 'Show tip for step 4 (quality assessment)';
+        }
+    });
+
+    // 4. Concept map synthesis builder
+    const theme1 = document.getElementById('theme1');
+    const theme2 = document.getElementById('theme2');
+    const theme3 = document.getElementById('theme3');
+    const synthesizeBtn = document.getElementById('synthesizeBtn');
+    const synthesisOutput = document.getElementById('synthesisOutput');
+    synthesizeBtn.addEventListener('click', () => {
+        let t1 = theme1.value.trim() || "research gap";
+        let t2 = theme2.value.trim() || "existing method";
+        let t3 = theme3.value.trim() || "future direction";
+        synthesisOutput.innerHTML = `🔬 <strong>Synthesized research direction:</strong> While many studies focus on ${t1} using ${t2}, there is limited work addressing ${t3}. Your literature review should critically compare these approaches and propose a novel framework.`;
+    });
+
+    // Add row to literature matrix
+    const addRowBtn = document.getElementById('addRowBtn');
+    const customRowArea = document.getElementById('customRowArea');
+    addRowBtn.addEventListener('click', () => {
+        const newRowId = Date.now();
+        customRowArea.innerHTML += `
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;" id="row-${newRowId}">
+                <input type="text" placeholder="Author (year)" style="width: 25%;">
+                <input type="text" placeholder="Method" style="width: 25%;">
+                <input type="text" placeholder="Finding" style="width: 25%;">
+                <input type="text" placeholder="Gap/limitation" style="width: 25%;">
+                <button onclick="document.getElementById('row-${newRowId}').remove()" style="background:#b91c1c; padding:0 1rem;">✖️</button>
+            </div>
+        `;
+    });
+
+    // ---------- 5. Literature Quiz (interactive, deeper) ----------
+    const quizData = [
+        {
+            question: "What is the main advantage of using a **systematic literature review** over a narrative review?",
+            options: ["It is faster to write", "It follows a reproducible, transparent methodology", "It only includes self‑published works", "It excludes any mathematical analysis"],
+            correct: 1
+        },
+        {
+            question: "Which Boolean operator would you use to combine 'MIMO' and 'channel estimation' to retrieve papers that mention both?",
+            options: ["OR", "NOT", "AND", "XOR"],
+            correct: 2
+        },
+        {
+            question: "In a research context, what is 'snowballing'?",
+            options: ["Using citation chaining (backward/forward references)", "A type of data visualization", "Removing duplicates from Zotero", "A statistical test for literature bias"],
+            correct: 0
+        },
+        {
+            question: "Which of the following is a reliable tool for managing references and collaborating on a shared library?",
+            options: ["Microsoft Word only", "Google Docs comments", "Zotero groups", "Dropbox paper"],
+            correct: 2
+        }
+    ];
+
+    function renderQuiz() {
+        let html = '';
+        quizData.forEach((q, idx) => {
+            html += `<div class="quiz-question" style="margin-bottom:1.5rem;"><strong>${idx+1}. ${q.question}</strong><div class="quiz-options" data-qidx="${idx}">`;
+            q.options.forEach((opt, optIdx) => {
+                html += `<div class="quiz-option" data-optidx="${optIdx}">${opt}</div>`;
+            });
+            html += `</div><div class="quiz-feedback" id="quiz-fb-${idx}"></div></div>`;
+        });
+        document.getElementById('quizArea').innerHTML = html;
+
+        // attach click listeners to options
+        document.querySelectorAll('.quiz-options').forEach(optContainer => {
+            const qidx = parseInt(optContainer.getAttribute('data-qidx'));
+            const opts = optContainer.querySelectorAll('.quiz-option');
+            opts.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    // remove selected class from siblings
+                    opts.forEach(o => o.classList.remove('selected'));
+                    opt.classList.add('selected');
+                    // store selected answer in a data attribute on container
+                    optContainer.setAttribute('data-selected', opt.getAttribute('data-optidx'));
+                });
+            });
+        });
+    }
+    renderQuiz();
+
+    document.getElementById('submitLitQuiz').addEventListener('click', () => {
+        let score = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            const optContainer = document.querySelector(`.quiz-options[data-qidx="${i}"]`);
+            const selectedIdx = optContainer ? optContainer.getAttribute('data-selected') : null;
+            const fbDiv = document.getElementById(`quiz-fb-${i}`);
+            if (selectedIdx !== null && parseInt(selectedIdx) === quizData[i].correct) {
+                score++;
+                fbDiv.innerHTML = '✅ Correct. Good understanding!';
+                fbDiv.className = 'feedback-correct';
+            } else {
+                const correctAns = quizData[i].options[quizData[i].correct];
+                fbDiv.innerHTML = `❌ Incorrect. Correct answer: ${correctAns}. Review the strategies above.`;
+                fbDiv.className = 'feedback-wrong';
+            }
+        }
+        const total = quizData.length;
+        const resultDiv = document.getElementById('quizResult');
+        resultDiv.innerHTML = `You scored ${score}/${total}. ${score === total ? '🌟 Excellent! You are ready to conduct a rigorous literature review.' : '❄️ Revisit Boolean operators and systematic review steps above.'}`;
+    });
+
+    // Additional micro-interactions: tooltips, dynamic examples
+    const searchInputs = [conceptA, conceptB, notTerm];
+    searchInputs.forEach(inp => inp.addEventListener('input', updateSearchString));
+</script>
+</body>
+</html>
