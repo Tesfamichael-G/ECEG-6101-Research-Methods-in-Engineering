@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5: Research Ethics - Reference Manual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+
+        <div class="container">
+
+            <header>
+                <h1>Chapter 5: Research Ethics</h1>
+            </header>
+
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#definitions">Ethics vs. Norms</a></li>
+                    <li><a href="#conduct">Conducting Research (Data Integrity)</a></li>
+                    <li><a href="#authorship">Authorship, Copyright & Patenting</a></li>
+                    <li><a href="#sharing">Data Sharing & Management</a></li>
+                    <li><a href="#peer-review">Confidentiality in Peer Review</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Definitions -->
+            <section id="definitions">
+                <div class="structure-card">
+                    <h2>1. Ethics vs. Norms</h2>
+
+                    <div class="definition-box">
+                        <strong>Ethics:</strong> The branch of philosophy dealing with values relating to human conduct,
+                        with
+                        respect to the rightness and wrongness of certain actions and to the goodness and badness of the
+                        motives
+                        and ends of such actions.
+                    </div>
+
+                    <div class="definition-box">
+                        <strong>Ethical Norms:</strong> The specific "body of principles" or rules that govern behavior
+                        in a
+                        professional context. In research, these are codified by institutions (like IEEE or University
+                        Senates).
+                    </div>
+
+                    <p>Why do we need them?</p>
+                    <ul>
+                        <li>To ensure truth-seeking (science relies on trust).</li>
+                        <li>To protect human/animal subjects.</li>
+                        <li>To maintain public confidence in engineering.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 2: Conducting Research -->
+            <section id="conduct">
+                <div class="structure-card">
+                    <h2>2. Conducting Research: Data Integrity</h2>
+                    <p>The core of engineering ethics is honesty in data collection, analysis, and interpretation. There
+                        are
+                        three major sins in research, often called <strong>FFP</strong>.</p>
+
+                    <div class="violation-card">
+                        <h4>🚫 Fabrication</h4>
+                        <p><strong>Making up data or results.</strong></p>
+                        <p><em>Example:</em> You didn't run the simulation, but you generated random numbers that look
+                            like
+                            a
+                            valid BER curve and reported them as real results.</p>
+                    </div>
+
+                    <div class="violation-card">
+                        <h4>🚫 Falsification</h4>
+                        <p><strong>Manipulating research materials, equipment, or processes, or changing/omitting
+                                data.</strong>
+                        </p>
+                        <p><em>Example:</em> You ran the simulation 10 times. 9 times it failed, 1 time it worked. You
+                            only
+                            report the 1 success and hide the 9 failures. This is "Cherry-Picking."</p>
+                    </div>
+
+                    <div class="violation-card">
+                        <h4>🚫 Plagiarism</h4>
+                        <p><strong>The appropriation of another person's ideas, processes, results, or words without
+                                giving
+                                appropriate credit.</strong></p>
+                        <p><em>Example:</em> Copying a paragraph from an IEEE paper into your thesis without quotation
+                            marks
+                            or
+                            citation. Or, copying code from GitHub without attribution.</p>
+                    </div>
+
+                    <div class="best-practice">
+                        <strong>✅ Best Practice: Record Keeping</strong>
+                        Keep a detailed lab notebook (digital or physical). Record every simulation seed, every
+                        parameter
+                        change, and every failed attempt. This proves your work is authentic.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Authorship & IP -->
+            <section id="authorship">
+                <div class="structure-card">
+                    <h2>3. Authorship, Copyright & Patenting</h2>
+
+                    <h3>A. Authorship Criteria</h3>
+                    <p>Who gets to be an author on a paper? According to IEEE and international standards, authorship
+                        requires
+                        ALL of the following:</p>
+                    <ol>
+                        <li>Substantial contributions to the conception or design of the work; OR the acquisition,
+                            analysis, or
+                            interpretation of data.</li>
+                        <li>Drafting the work or revising it critically for important intellectual content.</li>
+                        <li>Final approval of the version to be published.</li>
+                        <li>Agreement to be accountable for all aspects of the work.</li>
+                    </ol>
+                    <p><strong>Note:</strong> Providing funding or general supervision alone does NOT qualify someone
+                        for
+                        authorship (they go in Acknowledgements).</p>
+
+                    <h3>B. Copyright</h3>
+                    <p>Copyright protects the <strong>expression</strong> of an idea (the text, the figures, the code),
+                        not the
+                        idea itself.</p>
+                    <ul>
+                        <li>When you publish in an IEEE journal, you often transfer copyright to IEEE.</li>
+                        <li>You cannot simply copy-paste your own published paper into your thesis without checking the
+                            publisher's policy (usually allowed for thesis, but must cite).</li>
+                    </ul>
+
+                    <h3>C. Patenting</h3>
+                    <p>Patents protect <strong>inventions</strong> (new processes, machines, compositions of matter).
+                    </p>
+                    <ul>
+                        <li><strong>Public Disclosure Bar:</strong> If you publish your research (paper/conference)
+                            BEFORE
+                            filing a patent, you may lose the right to patent it in many countries. Always consult your
+                            university's Technology Transfer Office before publishing if your work has commercial
+                            potential.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 4: Data Sharing -->
+            <section id="sharing">
+                <div class="structure-card">
+                    <h2>4. Data Sharing & Management</h2>
+                    <p>Modern science emphasizes <strong>Open Science</strong>. Researchers are increasingly expected to
+                        share
+                        their data and code.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Principle</th>
+                                <th>Guideline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FAIR Data</strong></td>
+                                <td>Data should be <strong>F</strong>indable, <strong>A</strong>ccessible,
+                                    <strong>I</strong>nteroperable, and <strong>R</strong>eusable.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Privacy</strong></td>
+                                <td>If your data involves humans (e.g., user surveys, location data), you MUST anonymize
+                                    it to
+                                    protect identity (GDPR compliance).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Retention</strong></td>
+                                <td>Keep raw data for at least 3-5 years after publication in case of audits or
+                                    questions.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 5: Peer Review -->
+            <section id="peer-review">
+                <div class="structure-card">
+                    <h2>5. Confidentiality in Peer Review</h2>
+                    <p>As a researcher, you will eventually review papers for journals. This is a privilege that comes
+                        with
+                        strict ethical duties.</p>
+
+                    <ul>
+                        <li><strong>Confidentiality:</strong> The manuscript is a private document. You cannot share it
+                            with
+                            colleagues, students, or friends without the editor's permission.</li>
+                        <li><strong>No Conflict of Interest:</strong> If you know the author, or are competing with
+                            them, you
+                            must declare it and recuse yourself.</li>
+                        <li><strong>No Misappropriation:</strong> You cannot use ideas from a paper you are reviewing to
+                            advance
+                            your own work before it is published. This is theft of intellectual property.</li>
+                        <li><strong>Objectivity:</strong> Reviews should be constructive and based on technical merit,
+                            not
+                            personal bias.</li>
+                    </ul>
+
+                    <div class="best-practice">
+                        <strong>✅ The Golden Rule of Ethics:</strong>
+                        Treat other researchers' work with the same respect and integrity you expect for your own.
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>ECEG-6101 Reference Manual | Updated April 2026</p>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+
+</body>
+
+</html>

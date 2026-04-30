@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6: Reporting Research Findings - Reference Manual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+        <div class="container">
+            <header>
+                <h1>Chapter 6: Reporting Research Findings</h1>
+            </header>
+
+            <div class="toc">
+                <h3>The IMRaD Structure</h3>
+                <ul>
+                    <li><a href="#intro">Introduction ("Here's the Problem")</a></li>
+                    <li><a href="#methods">Methods ("Here's How I Studied It")</a></li>
+                    <li><a href="#results">Results ("Here's What I Found")</a></li>
+                    <li><a href="#discussion"> Discussion ("Here's What It Means")</a></li>
+                    <li><a href="#presentation">Oral Presentation Tips</a></li>
+                </ul>
+            </div>
+
+            <!-- Introduction -->
+            <section id="intro">
+                <div class="structure-card">
+                    <div class="imrad-section">
+                        <h4>1. Introduction</h4>
+                        <span class="prompt">"Here is the problem, and why you should care."</span>
+
+                        <p>The Introduction sets the stage. It moves from general context to your specific research
+                            question
+                            (the "Funnel" approach).</p>
+
+                        <h5>Key Components:</h5>
+                        <ul class="checklist">
+                            <li><strong>Hook/Context:</strong> Briefly introduce the broad field (e.g., "5G networks
+                                require
+                                ultra-low latency...").</li>
+                            <li><strong>Problem Statement:</strong> Identify the specific gap or issue (e.g., "...but
+                                current
+                                handover algorithms cause delays >50ms.").</li>
+                            <li><strong>Objective:</strong> State clearly what this report/paper achieves (e.g., "This
+                                study
+                                proposes a new predictive handover algorithm...").</li>
+                            <li><strong>Roadmap:</strong> Briefly outline the rest of the paper.</li>
+                        </ul>
+
+                        <!-- Section 1: Problem Statement -->
+                        <section id="problem">
+                            <h3>1.1 The Problem Statement</h3>
+                            <p>The problem statement is the most important paragraph in your proposal. If the problem
+                                isn't
+                                clear, the solution doesn't matter. Use the <strong>Hook-Gap-Goal</strong> framework.
+                            </p>
+
+                            <div class="framework-box">
+                                <h3>The Hook-Gap-Goal Framework</h2>
+                                    <ol>
+                                        <li><strong>The Hook (Context):</strong> What is the general situation? Why is
+                                            this
+                                            field
+                                            important?
+                                            <br><em>"5G networks promise ultra-low latency for critical
+                                                applications..."</em>
+                                        </li>
+                                        <li><strong>The Gap (The Problem):</strong> What is missing, broken, or unknown?
+                                            <br><em>"...however, current handover algorithms fail to maintain
+                                                connectivity
+                                                under
+                                                high-mobility conditions (>100 km/h), causing packet loss."</em>
+                                        </li>
+                                        <li><strong>The Goal (Your Solution):</strong> What will you do to fill the gap?
+                                            <br><em>"This research proposes a predictive handover algorithm using LSTM
+                                                networks
+                                                to
+                                                reduce packet loss by 20%."</em>
+                                        </li>
+                                    </ol>
+                            </div>
+
+                            <div class="tip-box">
+                                <strong>💡 Tip:</strong> Avoid vague problems like "5G is slow." Be specific: "Handover
+                                latency
+                                in 5G mmWave exceeds 50ms, violating URLLC standards."
+                            </div>
+                        </section>
+
+                        <!-- Section 2: Objectives -->
+                        <section id="objectives">
+                            <h3>1.2. SMART Objectives</h3>
+                            <p>Objectives translate your problem into actionable steps. They must be
+                                <strong>SMART</strong>.
+                            </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15%;">Criteria</th>
+                                        <th style="width: 35%;">Definition</th>
+                                        <th style="width: 50%;">Engineering Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>S</strong>pecific</td>
+                                        <td>Clear and unambiguous. What exactly will you do?</td>
+                                        <td>"Design a beamforming algorithm..." (Not "Study beamforming.")</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>M</strong>easurable</td>
+                                        <td>Can you quantify the outcome?</td>
+                                        <td>"...to improve spectral efficiency by 15%."</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>A</strong>chievable</td>
+                                        <td>Is it realistic given your time/skills?</td>
+                                        <td>"Using MATLAB simulations..." (Not "Build a satellite.")</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>R</strong>elevant</td>
+                                        <td>Does it solve the problem stated above?</td>
+                                        <td>"...to support massive IoT connectivity."</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>T</strong>ime-bound</td>
+                                        <td>Can it be done in the semester/year?</td>
+                                        <td>"...within the 6-month thesis period."</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="example-card">
+                                <strong>General Objective:</strong>
+                                To develop a low-complexity resource allocation scheme for NOMA-based 5G networks.
+                                <br><br>
+                                <strong>Specific Objectives:</strong>
+                                <ol>
+                                    <li>To model a downlink NOMA system with imperfect CSI in MATLAB.</li>
+                                    <li>To propose a user-pairing algorithm that maximizes sum-rate.</li>
+                                    <li>To compare the proposed algorithm against OMA and existing NOMA schemes in terms
+                                        of
+                                        BER
+                                        and throughput.</li>
+                                </ol>
+                            </div>
+                        </section>
+                        <div class="tip-box">
+                            <strong>💡 Tip:</strong> Do not put your results in the Introduction. Save the "surprise"
+                            for
+                            the
+                            Results section. The Intro is for setting up the question, not answering it.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methods -->
+            <section id="methods">
+                <div class="structure-card">
+                    <div class="imrad-section">
+                        <h4>2. Methods (Methodology)</h4>
+                        <span class="prompt">"Here is how I studied it."</span>
+
+                        <p>This section must be detailed enough for another engineer to <strong>replicate</strong> your
+                            work
+                            exactly. In Communication Engineering, this is often called "System Model and Simulation
+                            Setup."
+                        </p>
+
+                        <h5>What to Include:</h5>
+                        <ul class="checklist">
+                            <li><strong>System Model:</strong> Diagrams of the network topology, antenna arrays, or
+                                signal
+                                flow.
+                            </li>
+                            <li><strong>Mathematical Formulation:</strong> Key equations defining the channel model,
+                                signal
+                                processing steps, or optimization problems.</li>
+                            <li><strong>Simulation Parameters:</strong> A table listing all constants (e.g., Carrier
+                                Frequency:
+                                28 GHz, Bandwidth: 100 MHz, Modulation: 64-QAM).</li>
+                            <li><strong>Tools:</strong> Software used (MATLAB, NS-3, Python) and hardware (USRP,
+                                Spectrum
+                                Analyzer).</li>
+                            <li><strong>Data Analysis:</strong> Statistical tests or performance metrics used (e.g.,
+                                BER,
+                                Throughput, Latency).</li>
+                        </ul>
+
+                        <div class="tip-box">
+                            <strong>💡 Tip:</strong> Use a <strong>Parameter Table</strong>. It is much clearer than
+                            listing
+                            20
+                            simulation settings in paragraph text.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results -->
+            <section id="results">
+                <div class="structure-card">
+                    <div class="imrad-section">
+                        <h4>3. Results</h4>
+                        <span class="prompt">"Here is what I found."</span>
+
+                        <p>This section presents the data objectively, without interpretation. Just the facts.</p>
+
+                        <h5>Best Practices for Engineering Results:</h5>
+                        <ul>
+                            <li><strong>Visuals First:</strong> Use graphs, plots, and tables. A BER vs. SNR curve is
+                                worth
+                                1000
+                                words.</li>
+                            <li><strong>Label Everything:</strong> Axes must have units (e.g., "SNR (dB)", "Throughput
+                                (Mbps)").
+                                Legends must be clear.</li>
+                            <li><strong>Highlight Key Trends:</strong> Point out the most important data points (e.g.,
+                                "As
+                                shown
+                                in Fig. 3, the proposed method outperforms the baseline at SNR > 15dB.").</li>
+                            <li><strong>No Opinion:</strong> Do not say "This result is good." Say "This result is 15%
+                                higher
+                                than the baseline." Save the "good/bad" judgment for the Discussion.</li>
+                        </ul>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Do</th>
+                                    <th>Don't</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>"Figure 1 shows that latency decreases as bandwidth increases."</td>
+                                    <td>"Figure 1 proves that our method is amazing."</td>
+                                </tr>
+                                <tr>
+                                    <td>Report exact p-values or error margins.</td>
+                                    <td>Say "The results were significantly better" without data.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discussion -->
+            <section id="discussion">
+                <div class="structure-card">
+                    <div class="imrad-section">
+                        <h4>4. Discussion</h4>
+                        <span class="prompt">"Here is what it means."</span>
+
+                        <p>This is the most important section for demonstrating your critical thinking. You interpret
+                            the
+                            results and connect them back to the Introduction.</p>
+
+                        <h5>Key Questions to Answer:</h5>
+                        <ol>
+                            <li><strong>Interpretation:</strong> Why did you get these results? (e.g., "The improvement
+                                is
+                                likely due to the reduced interference from the beamforming step.")</li>
+                            <li><strong>Comparison:</strong> How do your results compare to previous studies? (e.g.,
+                                "Unlike
+                                Smith et al., who found X, we found Y. This discrepancy may be due to our use of a more
+                                realistic channel model.")</li>
+                            <li><strong>Implications:</strong> What does this mean for the field? (e.g., "This suggests
+                                that
+                                predictive handover is viable for high-speed trains.")</li>
+                            <li><strong>Limitations:</strong> What went wrong? What are the constraints? (e.g., "The
+                                algorithm
+                                requires high computational power, which may limit its use in low-cost devices.")</li>
+                            <li><strong>Future Work:</strong> What should be done next?</li>
+                        </ol>
+
+                        <div class="tip-box">
+                            <strong>💡 Tip:</strong> Be honest about limitations. Acknowledging weaknesses makes your
+                            research
+                            look more rigorous, not less.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentation -->
+            <section id="presentation">
+                <div class="structure-card">
+                    <h2>5. Oral Presentation Tips</h2>
+                    <p>Writing a report is different from presenting it. A presentation is a performance.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Guideline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Slides</strong></td>
+                                <td>Minimal text. One idea per slide. Use high-quality diagrams. Font size > 24pt.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Structure</strong></td>
+                                <td>Follow IMRaD(Introduction, Methods, Results, and Discussion) but spend 60% of time
+                                    on
+                                    Methods and Results. Keep Intro short.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Delivery</strong></td>
+                                <td>Speak slowly. Make eye contact. Do not read from the slides.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q&A</strong></td>
+                                <td>Listen to the whole question. Pause before answering. If you don't know, say "That's
+                                    an
+                                    interesting point, I will look into it."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="best-practice"
+                        style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 5px;">
+                        <strong>✅ The 10-20-30 Rule (Guy Kawasaki):</strong>
+                        <ul>
+                            <li>No more than <strong>10</strong> slides.</li>
+                            <li>No longer than <strong>20</strong> minutes.</li>
+                            <li>No font smaller than <strong>30</strong> points.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>ECEG-6101 Reference Manual | Updated April 2026</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+
+</body>
+
+</html>

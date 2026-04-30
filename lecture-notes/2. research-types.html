@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Types of Research - Reference Manual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+
+        <div class="container">
+
+            <header>
+                <h1>Chapter 2: Types of Research</h1>
+            </header>
+
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#purpose">Based on Purpose (Basic vs. Applied)</a></li>
+                    <li><a href="#approach">Based on Approach (Qualitative vs. Quantitative)</a></li>
+                    <li><a href="#nature">Based on Nature (Exploratory, Descriptive, Empirical)</a></li>
+                    <li><a href="#data-source">Based on Data Source (Primary vs. Secondary)</a></li>
+                    <li><a href="#field">Based on Field of Study</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Purpose -->
+            <section id="purpose">
+                <div class="structure-card">
+                    <h2>1. Based on Purpose</h2>
+                    <p>Research is classified by its ultimate goal: is it to expand knowledge for knowledge's sake, or
+                        to
+                        solve
+                        a specific practical problem?</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Type</th>
+                                <th style="width: 40%;">Description</th>
+                                <th style="width: 40%;">Engineering Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="tag tag-basic">Basic Research</span><br>(Pure/Fundamental)</td>
+                                <td>
+                                    <ul>
+                                        <li>Driven by curiosity and the desire to expand knowledge.</li>
+                                        <li>Focuses on generalizations and formulation of theories.</li>
+                                        <li>Not necessarily concerned with solving a specific societal problem
+                                            immediately.
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <strong>Shannon’s Information Theory (1948):</strong><br>
+                                    Claude Shannon developed the mathematical theory of communication without a specific
+                                    product
+                                    in mind. It laid the foundation for all modern digital communications.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag tag-applied">Applied Research</span><br>(Practical)</td>
+                                <td>
+                                    <ul>
+                                        <li>Designed to solve specific, practical problems facing an individual, group,
+                                            or
+                                            society.</li>
+                                        <li>Uses existing theories to find solutions.</li>
+                                        <li>Often leads to patents, products, or policy changes.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <strong>5G Network Optimization:</strong><br>
+                                    Developing a new beamforming algorithm specifically to reduce latency in urban 5G
+                                    networks
+                                    by 10ms. The goal is a tangible improvement in service.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="definition-box">
+                        <strong>Note for M.Sc. Students:</strong> Most Master's theses are <strong>Applied
+                            Research</strong>.
+                        You are expected to take existing theories and apply them to a new scenario, optimization
+                        problem,
+                        or
+                        system design.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Approach -->
+            <section id="approach">
+                <div class="structure-card">
+                    <h2>2. Based on Approach (Methodology)</h2>
+                    <p>This classification refers to the nature of the data and the methods used to analyze it.</p>
+
+                    <h3>A. Quantitative Research</h3>
+                    <p>Focuses on quantifying the collection and analysis of data. It is structured, objective, and
+                        statistical.
+                    </p>
+                    <ul>
+                        <li><strong>Data:</strong> Numbers, metrics, signals, logs.</li>
+                        <li><strong>Tools:</strong> MATLAB, Python, SPSS, Spectrum Analyzers.</li>
+                        <li><strong>Goal:</strong> To test hypotheses, look for cause-and-effect, and make predictions.
+                        </li>
+                    </ul>
+                    <div class="example-card">
+                        <strong>Comm. Eng. Example:</strong>
+                        Measuring the Bit Error Rate (BER) of a Quadrature Amplitude Modulation (QAM) scheme at
+                        different
+                        Signal-to-Noise Ratio (SNR) levels. The result is a numerical curve.
+                    </div>
+
+                    <h3>B. Qualitative Research</h3>
+                    <p>Focuses on understanding concepts, thoughts, or experiences. It is subjective and interpretive.
+                    </p>
+                    <ul>
+                        <li><strong>Data:</strong> Words, images, observations, interview transcripts.</li>
+                        <li><strong>Tools:</strong> Interviews, focus groups, case studies.</li>
+                        <li><strong>Goal:</strong> To gain an in-depth understanding of underlying reasons, opinions,
+                            and
+                            motivations.</li>
+                    </ul>
+                    <div class="example-card">
+                        <strong>Comm. Eng. Example:</strong>
+                        Interviewing telecom engineers to understand the <em>challenges</em> they face when deploying
+                        fiber
+                        optics in rural areas. The result is a thematic analysis of barriers.
+                    </div>
+
+                    <h3>C. Mixed Methods</h3>
+                    <p>Combines both quantitative and qualitative approaches to provide a complete picture.</p>
+                    <div class="example-card">
+                        <strong>Example:</strong>
+                        1. Surveying users about their satisfaction with Wi-Fi speed (Quantitative).<br>
+                        2. Interviewing unhappy users to ask <em>why</em> they are dissatisfied (Qualitative).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Nature of Inquiry -->
+            <section id="nature">
+                <div class="structure-card">
+                    <h2>3. Based on Nature of Inquiry</h2>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Definition</th>
+                                <th>When to Use?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Exploratory</strong></td>
+                                <td>Conducted for a problem that has not been clearly defined. It helps determine the
+                                    best
+                                    research design, data collection method, and selection of subjects.</td>
+                                <td>When you are entering a completely new field (e.g., "What are the potential security
+                                    risks
+                                    of 6G?").</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Descriptive</strong></td>
+                                <td>Describes the characteristics of the population or phenomenon being studied. It
+                                    focuses
+                                    on
+                                    the "what" rather than the "why."</td>
+                                <td>When you need to map out current status (e.g., "Describing the spectrum usage
+                                    efficiency
+                                    in
+                                    City X").</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Explanatory (Causal)</strong></td>
+                                <td>Attempts to clarify why and how there is a relationship between two or more aspects
+                                    of a
+                                    situation or phenomenon.</td>
+                                <td>When you want to prove cause-and-effect (e.g., "Does increasing antenna height CAUSE
+                                    better
+                                    coverage?").</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Empirical</strong></td>
+                                <td>Based on observed and measured phenomena and derives knowledge from actual
+                                    experience
+                                    rather
+                                    than from theory or belief.</td>
+                                <td>Almost all engineering research. You must have data (simulated or real) to support
+                                    your
+                                    claims.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 4: Data Source -->
+            <section id="data-source">
+                <div class="structure-card"></div>
+                <h2>4. Based on Source of Data</h2>
+
+                <div class="definition-box">
+                    <strong>Primary Data:</strong> First-hand information collected by the researcher specifically for
+                    the
+                    current research problem.
+                </div>
+                <ul>
+                    <li><strong>Methods:</strong> Experiments, Surveys, Observations, Prototyping.</li>
+                    <li><strong>Pros:</strong> Specific to your needs, high control, current.</li>
+                    <li><strong>Cons:</strong> Time-consuming, expensive, requires resources.</li>
+                    <li><strong>Eng. Example:</strong> Running your own MATLAB simulations or measuring signal strength
+                        with
+                        a Universal Software Radio Peripheral (USRP) device.</li>
+                </ul>
+
+                <div class="definition-box" style="margin-top: 20px;">
+                    <strong>Secondary Data:</strong> Data that has already been collected by someone else for a
+                    different
+                    purpose.
+                </div>
+                <ul>
+                    <li><strong>Methods:</strong> Literature review, government reports, public datasets, company
+                        records.
+                    </li>
+                    <li><strong>Pros:</strong> Cheap, fast, large sample sizes available.</li>
+                    <li><strong>Cons:</strong> May be outdated, may not fit your specific variables, quality unknown.
+                    </li>
+                    <li><strong>Eng. Example:</strong> Using the "IEEE DataPort" dataset for traffic patterns instead of
+                        collecting your own.</li>
+                </ul>
+        </div>
+        </section>
+
+        <!-- Section 5: Field of Study -->
+        <section id="field">
+            <div class="structure-card"></div>
+            <h2>5. Based on Field of Study</h2>
+            <p>While research methods are universal, the context changes the ethical and practical considerations.
+            </p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Focus</th>
+                        <th>Key Considerations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Natural Sciences</strong><br>(Physics, Chem)</td>
+                        <td>Laws of nature, matter, energy.</td>
+                        <td>High controllability, reproducibility is key.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Engineering</strong><br>(Your Field)</td>
+                        <td>Application of science to build solutions.</td>
+                        <td>Feasibility, cost, safety standards, optimization.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social Sciences</strong><br>(Sociology, Psych)</td>
+                        <td>Human behavior, societies.</td>
+                        <td>Ethics (human subjects), subjectivity, complex variables.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medical</strong></td>
+                        <td>Health, disease, treatment.</td>
+                        <td>Strict ethical clearance (IRB), clinical trials, life-critical.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-card">
+                <strong>Interdisciplinary Research:</strong>
+                Modern Communication Engineering often overlaps with <strong>Social Science</strong> (e.g., studying
+                the
+                digital divide) or <strong>Medical</strong> fields (e.g., wearable health monitors). Be aware of the
+                ethical guidelines of the field you are touching.
+            </div>
+    </div>
+    </section>
+
+    <footer>
+        <p>ECEG-6101 Reference Manual | Updated April 2026</p>
+    </footer>
+    </div>
+
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+</body>
+
+</html>

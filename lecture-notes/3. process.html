@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: The Research Process - Reference Manual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+        <div class="container">
+            <header>
+                <h1>Chapter 3: Process in Conducting Research</h1>
+            </header>
+
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">The Research Cycle Overview</a></li>
+                    <li><a href="#conceptualization">Conceptualization Phase</a>
+                        <ul style="padding-left: 20px; font-size: 0.9em;">
+                            <li><a href="#lit-review">Lterature Review</a></li>
+                            <li><a href="#problem">Identifying the Problem</a></li>
+                            <li><a href="#purpose">Specifying Purpose & Questions</a></li>
+                            <li><a href="#design">Research Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contextualization">Contextualization Phase</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Overview -->
+            <section id="overview">
+                <div class="structure-card">
+                    <h2>1. The Research Cycle Overview</h2>
+                    <p>Research is not a linear straight line; it is an iterative cycle. However, for planning purposes,
+                        we
+                        divide it into two main phases:</p>
+                    <ol>
+                        <li><strong>Conceptualization:</strong> The "Thinking" phase. Defining <em>what</em> you will
+                            study
+                            and
+                            <em>why</em>.
+                        </li>
+                        <li><strong>Contextualization:</strong> The "Positioning" phase. Explaining how your work fits
+                            into
+                            the
+                            broader scientific community.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Section 2: Conceptualization -->
+            <section id="conceptualization">
+                <div class="structure-card">
+                    <h2>2. Conceptualization Phase</h2>
+                    <p>This is the most critical phase. A well-conceptualized problem is half-solved. This phase
+                        involves
+                        four
+                        key steps.</p>
+
+                    <!-- Step 2.1: Lit Review -->
+                    <div class="process-step" id="lit-review">
+                        <h4>Step 1: Literature Review (The Foundation)</h4>
+                        <p>Before you define your problem, you must know what has already been done. This prevents
+                            duplication
+                            and helps refine your ideas.</p>
+                        <ul>
+                            <li><strong>Goal:</strong> To find the "Research Gap."</li>
+                            <li><strong>Action:</strong> Read recent papers (last 3-5 years) in IEEE Xplore/Scopus.</li>
+                            <li><strong>Output:</strong> A summary of current state-of-the-art (SOTA).</li>
+                        </ul>
+                        <div class="definition-box">
+                            <strong>The Gap:</strong> The missing piece of knowledge that your research will fill. It
+                            could
+                            be a
+                            new method, a new application, or a correction of previous errors.
+                        </div>
+                    </div>
+
+                    <!-- Step 2.2: Problem Statement -->
+                    <div class="process-step" id="problem">
+                        <h4>Step 2: Identifying the Problem</h4>
+                        <p>A research problem is a specific issue, contradiction, or difficulty that you want to
+                            address.
+                        </p>
+
+                        <h5>Characteristics of a Good Problem Statement:</h5>
+                        <ul class="checklist">
+                            <li><strong>Specific:</strong> Not "5G is slow," but "Handover latency in ultra-dense 5G
+                                networks
+                                exceeds 50ms."</li>
+                            <li><strong>Measurable:</strong> Can be quantified or observed.</li>
+                            <li><strong>Feasible:</strong> Can be solved with available time and resources.</li>
+                            <li><strong>Relevant:</strong> Matters to the field of Communication Engineering.</li>
+                        </ul>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Weak Problem</th>
+                                    <th>Strong Problem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>"I want to study antenna design."</td>
+                                    <td>"Current microstrip antennas suffer from low gain at mmWave frequencies. I need
+                                        to
+                                        design a patch antenna with >10dBi gain at 28GHz."</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Step 2.3: Purpose & Questions -->
+                    <div class="process-step" id="purpose">
+                        <h4>Step 3: Specifying Purpose & Research Questions</h4>
+                        <p>Once the problem is identified, you must formalize it into objectives and questions.</p>
+
+                        <h5>A. General Objective</h5>
+                        <p>The broad goal. <em>Example: "To develop a low-complexity beamforming algorithm for
+                                RIS-assisted
+                                systems."</em></p>
+
+                        <h5>B. Specific Objectives (SMART)</h5>
+                        <ul>
+                            <li><strong>S</strong>pecific: Clear and unambiguous.</li>
+                            <li><strong>M</strong>easurable: Can be evaluated (e.g., "reduce complexity by 20%").</li>
+                            <li><strong>A</strong>chievable: Realistic.</li>
+                            <li><strong>R</strong>elevant: Aligns with the problem.</li>
+                            <li><strong>T</strong>ime-bound: Can be done in the semester/year.</li>
+                        </ul>
+
+                        <h5>C. Research Questions (RQs) vs. Hypotheses</h5>
+                        <ul>
+                            <li><strong>RQ:</strong> "How does parameter X affect outcome Y?"</li>
+                            <li><strong>Hypothesis:</strong> "Increasing X will decrease Y because..." (Common in
+                                experimental
+                                research).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 2.4: Research Design -->
+                    <div class="process-step" id="design">
+                        <h4>Step 4: Research Design (The Blueprint)</h4>
+                        <p>The research design is the framework that guides the collection and analysis of data. It is
+                            the
+                            "Master Plan."</p>
+
+                        <h5>Key Components of Design:</h5>
+                        <ol>
+                            <li><strong>Study Type:</strong> Experimental, Simulation, Correlational, or Descriptive?
+                            </li>
+                            <li><strong>Variables:</strong>
+                                <ul>
+                                    <li><em>Independent Variable (IV):</em> What you change (e.g., SNR, Modulation
+                                        Scheme).
+                                    </li>
+                                    <li><em>Dependent Variable (DV):</em> What you measure (e.g., BER, Throughput).</li>
+                                    <li><em>Control Variables:</em> What you keep constant (e.g., Bandwidth, Channel
+                                        Model).
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Data Collection Method:</strong> How will you get the data? (e.g., MATLAB
+                                simulation,
+                                USRP hardware testbed).</li>
+                            <li><strong>Data Analysis Plan:</strong> What statistical tests or comparison metrics will
+                                you
+                                use?
+                            </li>
+                        </ol>
+
+                        <div class="example-card"
+                            style="background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin-top: 10px;">
+                            <strong>Engineering Design Example:</strong>
+                            <br><em>Objective:</em> Compare Algorithm A and B.
+                            <br><em>Design:</em> Controlled Simulation.
+                            <br><em>IV:</em> Algorithm Type.
+                            <br><em>DV:</em> Execution Time.
+                            <br><em>Control:</em> Same CPU, Same Dataset.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Contextualization -->
+            <section id="contextualization">
+                <div class="structure-card">
+                    <h2>3. Contextualization Phase</h2>
+                    <p>Contextualization is the process of putting your research in the context of others. It answers
+                        the
+                        question: <strong>"So What?"</strong></p>
+
+                    <p>Even if your conceptualization is perfect, your research fails if you cannot explain its place in
+                        the
+                        wider world. This happens in two ways:</p>
+
+                    <h3>A. Theoretical Context</h3>
+                    <p>How does your work relate to existing theories?</p>
+                    <ul>
+                        <li>Does it support a existing theory?</li>
+                        <li>Does it contradict a widely held belief?</li>
+                        <li>Does it extend a theory to a new domain (e.g., applying Game Theory to Spectrum Sharing)?
+                        </li>
+                    </ul>
+
+                    <h3>B. Practical/Social Context</h3>
+                    <p>Why does this matter to society or industry?</p>
+                    <ul>
+                        <li><strong>Industry Relevance:</strong> Will this help telecom operators save money or improve
+                            service?
+                        </li>
+                        <li><strong>Social Impact:</strong> Will this help bridge the digital divide or improve
+                            emergency
+                            communications?</li>
+                    </ul>
+
+                    <div class="definition-box">
+                        <strong>The "Elevator Pitch" Test:</strong>
+                        Can you explain your research context in 30 seconds to a non-expert?
+                        <br><em>"I am studying [Topic] because [Problem], which matters because [Context/Impact]."</em>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>ECEG-6101 Reference Manual | Updated April 2026</p>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+</body>
+
+</html>

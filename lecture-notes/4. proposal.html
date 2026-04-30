@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Proposal Structure & Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+
+
+        <div class="container">
+
+            <header>
+                <h1>Research Proposal Structure & Guide</h1>
+            </header>
+
+            <div class="toc">
+                <h3>Proposal Paper Structure</h3>
+                <ul>
+                    <li><a href="#title">Title Page</a></li>
+                    <li><a href="#intro">Introduction (The "Why" & "What")</a></li>
+                    <li><a href="#lit-review">Literature Review (The "Who")</a></li>
+                    <li><a href="#methodology">Methodology (The "How")</a></li>
+                    <li><a href="#plan">Work Plan & Budget (The "When" & "Cost")</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </div>
+
+            <!-- 1. Title Page -->
+            <section id="title">
+                <div class="structure-card">
+                    <h4><span>1</span> Title Page</h4>
+                    <p>Your title must be descriptive and concise. Avoid vague terms like "A Study of..."</p>
+                    <div class="framework-box">
+                        <strong>Formula:</strong> [Method/Algorithm] for [Problem/Application] in [Context/System]
+                        <br><br>
+                        <em>Example:</em> "Deep Reinforcement Learning for Energy-Efficient Beamforming in RIS-Assisted
+                        6G
+                        Networks"
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Introduction -->
+            <section id="intro">
+                <div class="structure-card">
+                    <h4><span>2</span> Introduction</h4>
+                    <p>This section answers <strong>What?</strong>, <strong>Why?</strong>, and <strong>So
+                            What?</strong>.
+                        Use the <strong>Hook-Gap-Goal</strong> framework.</p>
+
+                    <h5>2.1 Background & Problem Statement</h5>
+                    <ul>
+                        <li><strong>The Hook:</strong> Briefly introduce the broad field (e.g., "Massive MIMO is
+                            critical
+                            for 5G...").</li>
+                        <li><strong>The Gap:</strong> Identify the specific problem (e.g., "...but existing algorithms
+                            suffer from high latency.").</li>
+                        <li><strong>The Goal:</strong> State your proposed solution (e.g., "This research proposes a
+                            low-complexity algorithm...").</li>
+                    </ul>
+
+                    <h5>2.2 Research Questions & Objectives</h5>
+                    <p>Translate your goal into SMART objectives.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>S</strong>pecific</td>
+                                <td>"Design a user-pairing algorithm for NOMA..."</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong>easurable</td>
+                                <td>"...to improve sum-rate by 15%."</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A</strong>chievable</td>
+                                <td>"Using MATLAB simulations..."</td>
+                            </tr>
+                            <tr>
+                                <td><strong>R</strong>elevant</td>
+                                <td>"...to support massive IoT connectivity."</td>
+                            </tr>
+                            <tr>
+                                <td><strong>T</strong>ime-bound</td>
+                                <td>"...within the 6-month thesis period."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>2.3 Significance of the Study</h5>
+                    <p>Who benefits? Explain the <strong>Theoretical</strong> (new model/framework) and
+                        <strong>Practical</strong> (cost/energy reduction) importance.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3. Literature Review -->
+            <section id="lit-review">
+                <div class="structure-card">
+                    <h4><span>3</span> Literature Review</h4>
+                    <p>This section answers <strong>Who has done similar work?</strong>. It shows you are not
+                        reinventing
+                        the wheel.</p>
+
+                    <ul class="checklist">
+                        <li><strong>Cite Key Papers:</strong> Mention 5-10 seminal works in your field.</li>
+                        <li><strong>Identify Gaps:</strong> Categorize gaps as Evidence, Knowledge, or Methodological.
+                        </li>
+                        <li><strong>Define Terms:</strong> Clarify technical vocabulary (e.g., "RIS," "Beamforming,"
+                            "NOMA").</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Tip:</strong> Don't just list papers. Synthesize them: "While Smith et al. focused on
+                        X,
+                        they did not address Y, which this study will tackle."
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Methodology -->
+            <section id="methodology">
+                <div class="structure-card">
+                    <h4><span>4</span> Methodology</h4>
+                    <p>This section answers <strong>How?</strong>. It must be detailed enough for another engineer to
+                        replicate your work.</p>
+
+                    <h5>4.1 Research Design</h5>
+                    <ul>
+                        <li><strong>Approach:</strong> Simulation-based, Experimental, or Analytical?</li>
+                        <li><strong>Tools:</strong> MATLAB, NS-3, Python, HFSS, USRP?</li>
+                        <li><strong>Data:</strong> Synthetic data, Public datasets, or Lab measurements?</li>
+                    </ul>
+
+                    <h5>4.2 System Model (Engineering Specifics)</h5>
+                    <div class="framework-box">
+                        <ul>
+                            <li><strong>Topology:</strong> Single-cell? Multi-cell? User distribution?</li>
+                            <li><strong>Channel Model:</strong> Rayleigh, Rician, AWGN, 3GPP UMi?</li>
+                            <li><strong>Hardware:</strong> Antenna count (MIMO), RF chain constraints?</li>
+                            <li><strong>Signal Processing:</strong> Modulation, Coding, Detection algorithms?</li>
+                        </ul>
+                    </div>
+
+                    <h5>4.3 Performance Metrics</h5>
+                    <p>Define how you will measure success: BER, Throughput, Latency, Energy Efficiency, Complexity
+                        (FLOPs).
+                    </p>
+                </div>
+            </section>
+
+            <!-- 5. Work Plan & Budget -->
+            <section id="plan">
+                <div class="structure-card">
+                    <h4><span>5</span> Work Plan & Budget</h4>
+                    <p>This section answers <strong>When?</strong> and <strong>How Much?</strong>.</p>
+
+                    <h5>5.1 Timeline (Gantt Chart)</h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Phase</th>
+                                <th>Activity</th>
+                                <th>Duration</th>
+                                <th>Deliverable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Literature Review & Proposal Defense</td>
+                                <td>Month 1-2</td>
+                                <td>Approved Proposal</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>System Modeling & Algorithm Design</td>
+                                <td>Month 3-4</td>
+                                <td>Simulation Code v1.0</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Data Collection & Simulation Runs</td>
+                                <td>Month 5-6</td>
+                                <td>Raw Data Sets</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Analysis & Interpretation</td>
+                                <td>Month 7</td>
+                                <td>Results Chapter Draft</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Thesis Writing & Final Defense</td>
+                                <td>Month 8-9</td>
+                                <td>Final Thesis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>5.2 Budget & Resources</h5>
+                    <p>List common cost items: Software Licenses (MATLAB/CST), Hardware (USRP/Antennas), Cloud Computing
+                        (AWS), Publication Fees (APC).</p>
+                    <div class="tip-box">
+                        <strong>💡 Tip:</strong> If using university labs, state: "The research will utilize existing
+                        university facilities. Estimated incidental costs are $X for printing and conference
+                        registration."
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. References -->
+            <section id="references">
+                <div class="structure-card">
+                    <h4><span>6</span> References</h4>
+                    <p>List all cited works in <strong>IEEE Format</strong>.</p>
+                    <div class="framework-box">
+                        <strong>Example:</strong>
+                        <br>[1] Q. Wu and R. Zhang, "Towards Smart and Reconfigurable Environment: Intelligent
+                        Reflecting
+                        Surface Aided Wireless Network," in IEEE Communications Magazine, vol. 58, no. 1, pp. 106-112,
+                        Jan.
+                        2020.
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>ECEG-6101 Reference Manual | Updated April 2026</p>
+            </footer>
+        </div>
+
+
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+
+</body>
+
+</html>

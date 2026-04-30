@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: The Concept of Research - Reference Manual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+
+
+        <div class="container">
+
+            <header>
+                <h1>Chapter 1: The Concept of Research</h1>
+            </header>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#sources">Sources of Knowledge</a></li>
+                    <li><a href="#definition">Defining Research</a></li>
+                    <li><a href="#purpose">The Purpose of Research</a></li>
+                    <li><a href="#method-vs-methodology">Method vs. Methodology</a></li>
+                    <li><a href="#philosophy">Philosophy of Research</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Sources of Knowledge -->
+            <section id="sources">
+                <div class="structure-card">
+                    <h2>1. Sources of Knowledge</h2>
+                    <p>Before conducting research, it is important to understand how humans acquire knowledge. In
+                        engineering, we rely on specific sources while rejecting others for scientific validity.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Source</th>
+                                <th>Description</th>
+                                <th>Reliability in Engineering</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tradition/Authority</strong></td>
+                                <td>Knowledge passed down from experts or textbooks.</td>
+                                <td><span style="color:orange">Medium</span>: Good starting point, but must be verified.
+                                    Experts can be wrong.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Common Sense</strong></td>
+                                <td>"It stands to reason." Intuitive beliefs.</td>
+                                <td><span style="color:red">Low</span>: Often biased or incorrect in complex systems
+                                    (e.g.,
+                                    quantum mechanics).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personal Experience</strong></td>
+                                <td>What you have observed yourself.</td>
+                                <td><span style="color:red">Low</span>: Subjective and limited sample size. Not
+                                    generalizable.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scientific Method</strong></td>
+                                <systematic observation, measurement, and experiment.</td>
+                                    <td><span style="color:green">High</span>: The gold standard. Objective, replicable,
+                                        and
+                                        falsifiable.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="example-box">
+                        <title>Engineering Example:</title>
+                        <em>Tradition</em> says copper is the best conductor. <em>Research</em> might reveal that
+                        graphene
+                        has better conductivity under specific conditions. We use research to challenge tradition.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Defining Research -->
+            <section id="definition">
+                <div class="structure-card">
+                    <h2>2. Defining Research</h2>
+                    <div class="definition-box">
+                        <strong>Research</strong> is a systematic, controlled, empirical, and critical investigation of
+                        hypothetical propositions about the presumed relations among natural phenomena.
+                    </div>
+
+                    <h3>Key Characteristics of Engineering Research:</h3>
+                    <ul>
+                        <li><strong>Systematic:</strong> Follows a structured procedure (not haphazard).</li>
+                        <li><strong>Controlled:</strong> Variables are managed to isolate cause and effect.</li>
+                        <li><strong>Empirical:</strong> Based on observable evidence (data), not just theory.</li>
+                        <li><strong>Critical:</strong> Scrutinizes procedures and conclusions for errors.</li>
+                        <li><strong>Replicable:</strong> Others can repeat the study and get similar results.</li>
+                    </ul>
+
+                    <div class="example-box">
+                        <title>Non-Research vs. Research:</title>
+                        <ul>
+                            <li><strong>Non-Research:</strong> Building a standard antenna using a known design.</li>
+                            <li><strong>Research:</strong> Modifying the antenna geometry to improve gain at 60GHz and
+                                statistically analyzing the performance improvement against existing models.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Purpose of Research -->
+            <section id="purpose">
+                <div class="structure-card">
+                    <h2>3. The Purpose of Research</h2>
+                    <p>Why do we conduct research in Communication Engineering?</p>
+
+                    <ol>
+                        <li><strong>Exploration:</strong> To investigate a new phenomenon (e.g., "How does Terahertz
+                            radiation behave in rain?").</li>
+                        <li><strong>Description:</strong> To accurately describe characteristics of a situation (e.g.,
+                            "Mapping signal coverage in urban canyons").</li>
+                        <li><strong>Explanation:</strong> To explain <em>why</em> something happens (e.g., "Why does
+                            latency
+                            increase when network load exceeds 80%?").</li>
+                        <li><strong>Prediction/Control:</strong> To predict future outcomes and control variables (e.g.,
+                            "Developing an algorithm to predict channel fading and compensate for it").</li>
+                    </ol>
+                </div>
+        </div>
+        </section>
+
+        <!-- Section 4: Method vs. Methodology -->
+        <section id="method-vs-methodology">
+            <div class="structure-card">
+                <h2>4. Research Method vs. Methodology</h2>
+                <p>These terms are often used interchangeably, but they are distinct.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Research Method</th>
+                            <th>Research Methodology</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Definition</strong></td>
+                            <td>The specific tools, techniques, or procedures used to collect and analyze data.</td>
+                            <td>The overarching strategy, rationale, and philosophical framework guiding the research.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Focus</strong></td>
+                            <td><em>How</em> you do it.</td>
+                            <td><em>Why</em> you do it that way.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Surveys, MATLAB simulations, Spectrum Analyzers, t-tests, Interviews.</td>
+                            <td>Quantitative Approach, Experimental Design, Positivism, Case Study Strategy.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="definition-box">
+                    <strong>Analogy:</strong> If research is building a house, the <em>Methodology</em> is the
+                    architectural plan and engineering principles. The <em>Methods</em> are the hammer, saw, and nails.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Philosophy of Research -->
+        <section id="philosophy">
+            <div class="structure-card">
+                <h2>5. Philosophy of Research</h2>
+                <p>Research philosophy refers to the system of beliefs about how data should be gathered, analyzed, and
+                    used. In Engineering, we primarily lean towards <strong>Positivism</strong>, but it is important to
+                    know the others.</p>
+
+                <h3>A. Positivism (The Engineering Standard)</h3>
+                <ul>
+                    <li><strong>Belief:</strong> Reality is objective, single, and measurable.</li>
+                    <li><strong>Goal:</strong> To find universal laws and cause-and-effect relationships.</li>
+                    <li><strong>Method:</strong> Highly structured, quantitative, statistical.</li>
+                    <li><strong>Example:</strong> Measuring the Bit Error Rate (BER) of a modulation scheme. The BER is
+                        a fact, independent of the observer.</li>
+                </ul>
+
+                <h3>B. Interpretivism</h3>
+                <ul>
+                    <li><strong>Belief:</strong> Reality is subjective and socially constructed.</li>
+                    <li><strong>Goal:</strong> To understand human meaning and experience.</li>
+                    <li><strong>Method:</strong> Qualitative, interviews, observations.</li>
+                    <li><strong>Example:</strong> Studying how users <em>feel</em> about the privacy implications of 5G
+                        tracking. This is subjective.</li>
+                </ul>
+
+                <h3>C. Pragmatism</h3>
+                <ul>
+                    <li><strong>Belief:</strong> The "truth" is whatever works best to solve the problem.</li>
+                    <li><strong>Method:</strong> Mixed Methods (combining Quant and Qual).</li>
+                    <li><strong>Example:</strong> Developing a new telecom policy by combining technical signal data
+                        (Positivism) with user acceptance surveys (Interpretivism).</li>
+                </ul>
+
+                <div class="example-box">
+                    <title>Which one are you?</title>
+                    As an M.Sc. in Communication Engineering student, your thesis will likely be
+                    <strong>Positivist</strong>. You are measuring physical phenomena (signals, noise, data rates) that
+                    exist objectively.
+                </div>
+            </div>
+    </div>
+    </section>
+
+    <footer>
+        <p>ECEG-6101 Reference Manual | Updated April 2026</p>
+    </footer>
+    </div>
+
+
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+</body>
+
+</html>
