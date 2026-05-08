@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6: Reporting Research Findings - Reference Manual</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-container {
+            /* max-width: 800px; */
+            /* padding: 24px; */
+            width: 100%;
+            margin: auto;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .options button:hover {
+            background: #eef6fc;
+            border-color: var(--primary);
+        }
+
+        .options button.correct {
+            background: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        .options button.incorrect {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .score-board {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px;
+            border-bottom: 2px solid var(--primary);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            width: 60%;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Sidebar Container (Populated by JS) -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+        <div class="score-board">
+            <div>
+                <h2 style="margin:0; border:none;">🧪 Research Methods Practice Lab</h2>
+                <p style="margin:0; font-size:0.9em;">Test your knowledge across all 6 chapters.</p>
+            </div>
+            <div style="text-align:right;">
+                <div>Score: <span id="score">0</span> / 50</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="quiz-area">
+            <!-- Questions will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Link to Shared JS -->
+    <script src="sidebar.js"></script>
+    <script>
+        // --- QUESTION DATABASE (50 Questions) ---
+        const questions = [
+            // CHAPTER 1: CONCEPT OF RESEARCH
+            {
+                chapter: "Ch 1",
+                q: "Which source of knowledge is considered the 'Gold Standard' in engineering research?",
+                options: ["Tradition/Authority", "Common Sense", "Personal Experience", "Scientific Method"],
+                answer: 3,
+                explanation: "The Scientific Method is objective, replicable, and falsifiable, making it the most reliable source."
+            },
+            {
+                chapter: "Ch 1",
+                q: "What is the key difference between Engineering Design and Research?",
+                options: ["Design uses math; Research does not.", "Design solves a specific problem; Research creates new knowledge.", "Research is always faster than Design.", "There is no difference."],
+                answer: 1,
+                explanation: "Design applies known methods to solve a problem. Research investigates the unknown to create generalizable knowledge."
+            },
+            {
+                chapter: "Ch 1",
+                q: "Which philosophy of research assumes that reality is objective, single, and measurable?",
+                options: ["Interpretivism", "Positivism", "Pragmatism", "Constructivism"],
+                answer: 1,
+                explanation: "Positivism is the standard in Engineering, focusing on objective facts and cause-and-effect relationships."
+            },
+            {
+                chapter: "Ch 1",
+                q: "If you are studying 'how users feel about 5G privacy', which philosophy are you likely using?",
+                options: ["Positivism", "Interpretivism", "Empiricism", "Determinism"],
+                answer: 1,
+                explanation: "Interpretivism deals with subjective human experiences and meanings."
+            },
+            {
+                chapter: "Ch 1",
+                q: "Research Method is to 'Tools' as Research Methodology is to:",
+                options: ["Strategy", "Hardware", "Data", "Results"],
+                answer: 0,
+                explanation: "Methodology is the overarching strategy or rationale (the 'Why'), while Methods are the tools (the 'How')."
+            },
+            {
+                chapter: "Ch 1",
+                q: "Which characteristic ensures that other engineers can repeat your study and get similar results?",
+                options: ["Systematic", "Controlled", "Replicable", "Critical"],
+                answer: 2,
+                explanation: "Replicability is essential for scientific validity."
+            },
+            {
+                chapter: "Ch 1",
+                q: "What is the primary purpose of 'Exploratory' research?",
+                options: ["To test a hypothesis", "To describe a population", "To investigate a poorly defined problem", "To prove a theory"],
+                answer: 2,
+                explanation: "Exploratory research helps define problems when little is known about the topic."
+            },
+            {
+                chapter: "Ch 1",
+                q: "True or False: Common Sense is a highly reliable source of knowledge in complex engineering systems.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "Common sense is often biased or incorrect in complex systems (e.g., quantum mechanics)."
+            },
+            {
+                chapter: "Ch 1",
+                q: "Which of the following is NOT a key characteristic of engineering research?",
+                options: ["Systematic", "Subjective", "Empirical", "Controlled"],
+                answer: 1,
+                explanation: "Research should be Objective, not Subjective."
+            },
+            {
+                chapter: "Ch 1",
+                q: "What does 'Empirical' mean in the context of research?",
+                options: ["Based on theory alone", "Based on observable evidence/data", "Based on expert opinion", "Based on mathematics"],
+                answer: 1,
+                explanation: "Empirical means derived from observation or experimentation."
+            },
+
+            // CHAPTER 2: TYPES OF RESEARCH
+            {
+                chapter: "Ch 2",
+                q: "Shannon’s Information Theory is an example of:",
+                options: ["Applied Research", "Basic Research", "Qualitative Research", "Action Research"],
+                answer: 1,
+                explanation: "It was driven by curiosity to expand knowledge, not to build a specific product immediately."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Developing a new beamforming algorithm to reduce 5G latency is an example of:",
+                options: ["Basic Research", "Applied Research", "Historical Research", "Philosophical Research"],
+                answer: 1,
+                explanation: "It solves a specific, practical problem."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Which data type is associated with Quantitative Research?",
+                options: ["Interview transcripts", "Numbers and Metrics", "Observations", "Images"],
+                answer: 1,
+                explanation: "Quantitative research focuses on numerical data and statistical analysis."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Measuring Bit Error Rate (BER) vs. SNR is an example of:",
+                options: ["Qualitative Research", "Quantitative Research", "Ethnography", "Case Study"],
+                answer: 1,
+                explanation: "It involves measuring numerical metrics."
+            },
+            {
+                chapter: "Ch 2",
+                q: "What is a 'Knowledge Gap'?",
+                options: ["When two studies contradict each other", "When a variable has never been studied before", "When a method is flawed", "When data is missing"],
+                answer: 1,
+                explanation: "A Knowledge Gap exists when a specific context or variable hasn't been explored yet."
+            },
+            {
+                chapter: "Ch 2",
+                q: "If you run your own MATLAB simulations, you are collecting:",
+                options: ["Secondary Data", "Primary Data", "Tertiary Data", "Meta Data"],
+                answer: 1,
+                explanation: "Primary data is collected firsthand by the researcher for the specific problem."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Using a public dataset from IEEE DataPort is an example of:",
+                options: ["Primary Data", "Secondary Data", "Experimental Data", "Field Data"],
+                answer: 1,
+                explanation: "Secondary data was collected by someone else for a different purpose."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Which research type focuses on 'What' rather than 'Why'?",
+                options: ["Explanatory", "Descriptive", "Exploratory", "Causal"],
+                answer: 1,
+                explanation: "Descriptive research maps out characteristics without necessarily explaining causes."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Mixed Methods research combines:",
+                options: ["Primary and Secondary Data", "Quantitative and Qualitative approaches", "Basic and Applied Research", "Simulation and Theory"],
+                answer: 1,
+                explanation: "It uses both numbers (Quant) and words/experiences (Qual)."
+            },
+            {
+                chapter: "Ch 2",
+                q: "Most M.Sc. theses in Communication Engineering are classified as:",
+                options: ["Basic Research", "Applied Research", "Social Research", "Medical Research"],
+                answer: 1,
+                explanation: "They typically apply existing theories to solve specific engineering problems."
+            },
+
+            // CHAPTER 3: PROCESS
+            {
+                chapter: "Ch 3",
+                q: "What is the first step in the Conceptualization phase?",
+                options: ["Writing the proposal", "Literature Review", "Data Collection", "Final Defense"],
+                answer: 1,
+                explanation: "You must review literature to find the gap before defining the problem."
+            },
+            {
+                chapter: "Ch 3",
+                q: "In the 'Hook-Gap-Goal' framework, what is the 'Gap'?",
+                options: ["The broad context", "The missing/flawed element in current solutions", "The proposed solution", "The budget"],
+                answer: 1,
+                explanation: "The Gap identifies what is wrong or missing in existing research."
+            },
+            {
+                chapter: "Ch 3",
+                q: "Which of the following is a SMART objective?",
+                options: ["To study 5G networks.", "To design an algorithm to reduce latency by 15% using MATLAB within 6 months.", "To make the network better.", "To read many papers."],
+                answer: 1,
+                explanation: "It is Specific, Measurable (15%), Achievable (MATLAB), Relevant, and Time-bound (6 months)."
+            },
+            {
+                chapter: "Ch 3",
+                q: "What is an Independent Variable (IV)?",
+                options: ["What you measure", "What you change/control", "What stays constant", "The result"],
+                answer: 1,
+                explanation: "The IV is the input you manipulate (e.g., SNR, Algorithm Type)."
+            },
+            {
+                chapter: "Ch 3",
+                q: "What is a Dependent Variable (DV)?",
+                options: ["What you measure (Outcome)", "What you change", "The hardware used", "The software license"],
+                answer: 0,
+                explanation: "The DV is the output you observe (e.g., BER, Throughput)."
+            },
+            {
+                chapter: "Ch 3",
+                q: "Contextualization answers which question?",
+                options: ["How much does it cost?", "So What? (Why does it matter?)", "What tools will I use?", "When will I finish?"],
+                answer: 1,
+                explanation: "Contextualization explains the significance and impact of the work."
+            },
+            {
+                chapter: "Ch 3",
+                q: "True or False: A good problem statement should be vague to allow flexibility.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "Problem statements must be Specific and Clear."
+            },
+            {
+                chapter: "Ch 3",
+                q: "Which phase involves 'Putting your research in the context of others'?",
+                options: ["Conceptualization", "Contextualization", "Data Collection", "Analysis"],
+                answer: 1,
+                explanation: "Contextualization positions your work within the broader scientific community."
+            },
+            {
+                chapter: "Ch 3",
+                q: "What is the output of the Literature Review step?",
+                options: ["A final thesis", "Identification of the Research Gap", "A budget plan", "A simulation code"],
+                answer: 1,
+                explanation: "The main goal is to find what is missing (the gap)."
+            },
+            {
+                chapter: "Ch 3",
+                q: "In a controlled simulation, what do you do with Control Variables?",
+                options: ["Change them randomly", "Keep them constant", "Ignore them", "Measure them"],
+                answer: 1,
+                explanation: "Control variables must stay constant to isolate the effect of the IV."
+            },
+
+            // CHAPTER 5: ETHICS
+            {
+                chapter: "Ch 5",
+                q: "What does FFP stand for in research misconduct?",
+                options: ["Fast, Fair, Professional", "Fabrication, Falsification, Plagiarism", "Files, Folders, Papers", "Find, Filter, Process"],
+                answer: 1,
+                explanation: "These are the three major sins of research ethics."
+            },
+            {
+                chapter: "Ch 5",
+                q: "Making up data that never existed is called:",
+                options: ["Plagiarism", "Falsification", "Fabrication", "Paraphrasing"],
+                answer: 2,
+                explanation: "Fabrication is inventing data/results."
+            },
+            {
+                chapter: "Ch 5",
+                q: "Running a simulation 10 times, hiding the 9 failures, and reporting only the 1 success is:",
+                options: ["Fabrication", "Falsification (Cherry-Picking)", "Plagiarism", "Good Luck"],
+                answer: 1,
+                explanation: "Falsification involves manipulating or omitting data to skew results."
+            },
+            {
+                chapter: "Ch 5",
+                q: "Copying code from GitHub without attribution is:",
+                options: ["Open Source Sharing", "Plagiarism", "Collaboration", "Efficiency"],
+                answer: 1,
+                explanation: "Using others' work (code or text) without credit is plagiarism."
+            },
+            {
+                chapter: "Ch 5",
+                q: "Who qualifies for Authorship on a paper?",
+                options: ["Anyone who provided funding", "Anyone who made substantial contributions to design, analysis, or writing", "The department head", "The student's parents"],
+                answer: 1,
+                explanation: "Authorship requires substantial intellectual contribution, not just supervision or money."
+            },
+            {
+                chapter: "Ch 5",
+                q: "What is the 'Public Disclosure Bar' in patenting?",
+                options: ["You cannot publish before filing a patent", "You must publish before filing", "Patents are public", "Bars serve coffee"],
+                answer: 0,
+                explanation: "Publishing your idea before filing a patent can void your right to patent it in many countries."
+            },
+            {
+                chapter: "Ch 5",
+                q: "FAIR data principles stand for:",
+                options: ["Fast, Accurate, Intelligent, Rapid", "Findable, Accessible, Interoperable, Reusable", "Free, Available, Instant, Real", "Fixed, Active, Isolated, Ready"],
+                answer: 1,
+                explanation: "FAIR guidelines promote open and shareable science."
+            },
+            {
+                chapter: "Ch 5",
+                q: "If you are reviewing a paper for a journal, you must:",
+                options: ["Share it with your friends", "Use the ideas in your own work", "Keep it confidential", "Post it on social media"],
+                answer: 2,
+                explanation: "Peer review is a confidential process."
+            },
+            {
+                chapter: "Ch 5",
+                q: "True or False: Providing general supervision qualifies someone for authorship.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "Supervision alone usually warrants an Acknowledgement, not Authorship."
+            },
+            {
+                chapter: "Ch 5",
+                q: "Why is record keeping important in ethics?",
+                options: ["To prove your work is authentic", "To fill up hard drive space", "To confuse reviewers", "It is not important"],
+                answer: 0,
+                explanation: "Detailed logs prove that data was not fabricated or falsified."
+            },
+
+            // CHAPTER 6A: PROPOSAL WRITING
+            {
+                chapter: "Ch 6A",
+                q: "In a proposal, the 'Methodology' section answers:",
+                options: ["Why is it important?", "How will you do it?", "Who has done it before?", "How much does it cost?"],
+                answer: 1,
+                explanation: "Methodology details the tools, design, and system model."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "Which section of the proposal includes the Gantt Chart?",
+                options: ["Introduction", "Literature Review", "Work Plan", "Budget"],
+                answer: 2,
+                explanation: "The Work Plan outlines the timeline and phases."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "A good proposal title should be:",
+                options: ["Vague and short", "Descriptive and specific", "Funny", "A question"],
+                answer: 1,
+                explanation: "Titles should clearly indicate the method, problem, and context."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "In the System Model checklist, what does 'Topology' refer to?",
+                options: ["The software used", "The network layout (single/multi-cell)", "The antenna color", "The budget"],
+                answer: 1,
+                explanation: "Topology describes the physical or logical arrangement of the network."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "Which of the following is a common 'Cost Item' in Comm. Eng. research?",
+                options: ["Software Licenses", "Coffee", "Salary of the Professor", "Office Rent"],
+                answer: 0,
+                explanation: "Toolboxes like MATLAB or CST often require licenses."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "True or False: You should hide potential risks in your proposal.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "Acknowledging risks and mitigation strategies shows maturity and planning."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "What is the purpose of the 'Significance' section?",
+                options: ["To list references", "To explain who benefits from the research", "To show code", "To define terms"],
+                answer: 1,
+                explanation: "It explains the theoretical or practical value of the work."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "Which channel model is commonly used in 5G simulations?",
+                options: ["Rayleigh/Rician or 3GPP UMi", "Newtonian", "Thermodynamic", "Psychological"],
+                answer: 0,
+                explanation: "Rayleigh, Rician, and 3GPP models are standard in wireless comms."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "A 'Buffer Week' in a work plan is for:",
+                options: ["Vacation", "Unexpected delays/debugging", "Writing fiction", "Sleeping"],
+                answer: 1,
+                explanation: "Research always takes longer than expected; buffers protect the timeline."
+            },
+            {
+                chapter: "Ch 6A",
+                q: "In the Hook-Gap-Goal framework, the 'Hook' is:",
+                options: ["The specific problem", "The broad context/importance", "The solution", "The budget"],
+                answer: 1,
+                explanation: "The Hook introduces the general field to grab interest."
+            },
+
+            // CHAPTER 6B: REPORTING & PRESENTATION
+            {
+                chapter: "Ch 6B",
+                q: "What does IMRaD stand for?",
+                options: ["Intro, Methods, Results, Discussion", "Input, Method, Ratio, Data", "Intel, Math, Read, Draw", "None of the above"],
+                answer: 0,
+                explanation: "It is the standard structure for scientific papers."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "In which section should you interpret your results and compare them to previous studies?",
+                options: ["Introduction", "Methods", "Results", "Discussion"],
+                answer: 3,
+                explanation: "The Discussion explains 'what it means' and contextualizes findings."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "True or False: You should include your raw data tables in the main text of a paper.",
+                options: ["True", "False"],
+                answer: 1,
+                explanation: "Raw data usually goes in Appendices. The main text should have summarized graphs/tables."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "According to the 10-20-30 rule, how many slides should a presentation have?",
+                options: ["No more than 10", "No more than 20", "No more than 30", "As many as needed"],
+                answer: 0,
+                explanation: "Guy Kawasaki's rule suggests max 10 slides for focus."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "What is the 'Funnel Approach' in an Introduction?",
+                options: ["Starting specific and going broad", "Starting broad and narrowing to the problem", "Using a funnel plot", "Pouring water"],
+                answer: 1,
+                explanation: "Introductions move from General Context -> Specific Problem."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "In the Results section, you should:",
+                options: ["Give your opinion", "Interpret the meaning", "Objectively present the data", "Hide bad results"],
+                answer: 2,
+                explanation: "Results are for facts. Interpretation belongs in the Discussion."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "Which IEEE citation format is correct for a journal?",
+                options: ["[1] J. Doe, 'Title,' Journal, Year.", "J. Doe, Title, Journal, Year.", "(Doe, 2023)", "Footnotes"],
+                answer: 0,
+                explanation: "IEEE uses numbered brackets [1] in the text and a numbered list at the end."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "If you don't know the answer during Q&A, you should:",
+                options: ["Lie", "Get angry", "Say 'That's an interesting point, I will look into it'", "Run away"],
+                answer: 2,
+                explanation: "Honesty and professionalism are key in defenses."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "What is the minimum recommended font size for slides?",
+                options: ["12 pt", "24-30 pt", "8 pt", "100 pt"],
+                answer: 1,
+                explanation: "Small fonts are unreadable from the back of the room."
+            },
+            {
+                chapter: "Ch 6B",
+                q: "Where should Figure Captions be placed in IEEE style?",
+                options: ["Above the figure", "Below the figure", "In the appendix", "Nowhere"],
+                answer: 1,
+                explanation: "Figure captions go below; Table captions go above."
+            }
+        ];
+
+        let currentScore = 0;
+        let answeredCount = 0;
+
+        function initQuiz() {
+            const quizArea = document.getElementById('quiz-area');
+
+            questions.forEach((q, index) => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `q-${index}`;
+
+                let optionsHtml = '';
+                q.options.forEach((opt, i) => {
+                    optionsHtml += `<button onclick="checkAnswer(${index}, ${i})">${opt}</button>`;
+                });
+
+                card.innerHTML = `
+                    <div class="question-text"><span style="color:var(--accent); font-size:0.8em;">${q.chapter}</span><br>${index + 1}. ${q.q}</div>
+                    <div class="options" id="opts-${index}">${optionsHtml}</div>
+                    <div class="feedback" id="feed-${index}"></div>
+                `;
+                quizArea.appendChild(card);
+            });
+        }
+
+        function checkAnswer(qIndex, selectedOptIndex) {
+            const q = questions[qIndex];
+            const optsDiv = document.getElementById(`opts-${qIndex}`);
+            const feedDiv = document.getElementById(`feed-${qIndex}`);
+            const buttons = optsDiv.getElementsByTagName('button');
+
+            // Disable all buttons for this question
+            for (let btn of buttons) {
+                btn.disabled = true;
+                btn.style.cursor = 'default';
+            }
+
+            if (selectedOptIndex === q.answer) {
+                buttons[selectedOptIndex].classList.add('correct');
+                feedDiv.innerHTML = `<strong>✅ Correct!</strong> ${q.explanation}`;
+                feedDiv.className = "feedback show correct";
+                currentScore++;
+            } else {
+                buttons[selectedOptIndex].classList.add('incorrect');
+                buttons[q.answer].classList.add('correct'); // Show correct one
+                feedDiv.innerHTML = `<strong>❌ Incorrect.</strong> ${q.explanation}`;
+                feedDiv.className = "feedback show incorrect";
+            }
+
+            answeredCount++;
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById('score').innerText = currentScore;
+            const percent = (answeredCount / questions.length) * 100;
+            document.getElementById('progress').style.width = percent + '%';
+        }
+
+        // Start
+        initQuiz();
+    </script>
+</body>
+
+</html>
