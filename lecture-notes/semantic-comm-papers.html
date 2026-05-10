@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Communication Papers - ECEg-6101</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .paper-card { 
+            background: white; 
+            border: 1px solid var(--border); 
+            border-left: 4px solid var(--info); 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border-radius: 8px; 
+            transition: transform 0.2s;
+        }
+        .paper-card:hover { transform: translateX(5px); border-color: var(--primary); }
+        .paper-title { font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1em; }
+        .paper-meta { font-size: 0.9em; color: #666; margin: 5px 0; line-height: 1.5; }
+        .tier-badge { 
+            display: inline-block; 
+            padding: 3px 10px; 
+            border-radius: 4px; 
+            font-size: 0.8em; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+        }
+        .tier-1 { background: #d4edda; color: #155724; }
+        .tier-2 { background: #fff3cd; color: #856404; }
+        .tier-3 { background: #e2e3e5; color: #383d41; }
+        .difficulty { 
+            display: inline-block; 
+            padding: 2px 8px; 
+            border-radius: 3px; 
+            font-size: 0.8em; 
+            margin-left: 10px; 
+        }
+        .diff-beginner { background: #d1ecf1; color: #0c5460; }
+        .diff-intermediate { background: #d4edda; color: #155724; }
+        .diff-advanced { background: #f8d7da; color: #721c24; }
+        .reading-order { 
+            background: #e7f3ff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 20px 0; 
+            border-left: 4px solid var(--info);
+        }
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .paper-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+        .paper-link:hover { background: #002244; }
+        .paper-link.verified { background: var(--success); }
+    </style>
+</head>
+<body>
+    <div id="sidebar"></div>
+    <div id="main-content">
+        
+        <header>
+            <h1>📚 Semantic Communication: 20 Key Papers</h1>
+            <p class="subtitle">Curated reading list for Literature Review assignments - ECEg-6101</p>
+        </header>
+
+        <div class="warning-box">
+            <strong>⚠️ Important:</strong> Some arXiv IDs in this list may be placeholders or future-dated. 
+            <strong>Always verify links before citing.</strong> Use IEEE Xplore as your primary source for Communication Engineering papers.
+        </div>
+
+        <div class="reading-order">
+            <h3>🗓️ Suggested Reading Order</h3>
+            <ol>
+                <li><strong>Week 1 (Foundation):</strong> Papers #1 → #5 → #3</li>
+                <li><strong>Week 2 (AI Methods):</strong> Papers #2 → #4 → #9</li>
+                <li><strong>Week 3 (Systems):</strong> Papers #6 → #7 → #8 → #10</li>
+                <li><strong>Week 4+ (Specialization):</strong> Papers #11–#20</li>
+            </ol>
+            <p style="margin-top:15px; font-size:0.9em;">
+                <strong>Tip:</strong> Use the <a href="3. process.html">Literature Review Matrix</a> template to analyze each paper.
+            </p>
+        </div>
+
+        <h2 style="border-left-color: #28a745;">Tier 1 — Foundational + State-of-the-Art</h2>
+        
+        <div class="paper-card">
+            <span class="tier-badge tier-1">Tier 1 • Essential</span>
+            <div class="paper-title">1. A Contemporary Survey on Semantic Communications: Theory of Mind, Generative AI, and Deep Joint Source-Channel Coding (2025)</div>
+            <div class="paper-meta"><strong>Why read first:</strong> Best modern overview of the entire field—covers theory, generative AI, and practical implementations.</div>
+            <div class="paper-meta"><strong>Focus:</strong> Complete survey, current directions, open problems, standardization roadmap.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://arxiv.org/abs/2502.16468" target="_blank" class="paper-link">🔗 View on arXiv</a>
+                <small style="margin-left:10px; color:#666;">⚠️ Verify before citing</small>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-1">Tier 1 • Essential</span>
+            <div class="paper-title">2. Generative Semantic Communications: Principles and Practices (2025)</div>
+            <div class="paper-meta"><strong>Why read:</strong> Foundational work on using foundation models/LLMs in semantic communication—key for 6G "native AI".</div>
+            <div class="paper-meta"><strong>Focus:</strong> LLMs, generative AI, semantic encoding/decoding, task-oriented transmission.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://arxiv.org/abs/2504.14947" target="_blank" class="paper-link">🔗 View on arXiv</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-1">Tier 1 • Essential</span>
+            <div class="paper-title">3. Towards Native AI in 6G Standardization: The Roadmap of Semantic Communication (2025)</div>
+            <div class="paper-meta"><strong>Why read:</strong> Connects research to real 6G standards (3GPP, ITU)—critical for industry relevance.</div>
+            <div class="paper-meta"><strong>Focus:</strong> Standardization pathways, interoperability, deployment challenges.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://arxiv.org/abs/2509.12758" target="_blank" class="paper-link">🔗 View on arXiv</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-1">Tier 1 • Essential</span>
+            <div class="paper-title">4. Multi-Modal Semantic Communication (2025)</div>
+            <div class="paper-meta"><strong>Why read:</strong> Combines text + image + audio semantics—very current for immersive 6G applications.</div>
+            <div class="paper-meta"><strong>Focus:</strong> Cross-modal attention, adaptive semantic transmission, joint source-channel coding.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://arxiv.org/abs/2512.15691" target="_blank" class="paper-link">🔗 View on arXiv</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-1">Tier 1 • Essential</span>
+            <div class="paper-title">5. A Review of Semantic Communications for the Future Internet (2026)</div>
+            <div class="paper-meta"><strong>Why read:</strong> Fresh 2026 review with broad systems perspective—great for contextualizing your work.</div>
+            <div class="paper-meta"><strong>Focus:</strong> Theory + architectures + future internet integration + open challenges.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-beginner">Beginner–Intermediate</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://www.mdpi.com/1999-5903/18/4/179/pdf" target="_blank" class="paper-link verified">📄 MDPI PDF</a>
+            </div>
+        </div>
+
+        <h2 style="border-left-color: #ffc107; margin-top:40px;">Tier 2 — Advanced Technical Papers</h2>
+        
+        <div class="paper-card">
+            <span class="tier-badge tier-2">Tier 2 • Technical</span>
+            <div class="paper-title">6. Semantic Communication for Cooperative Multi-Tasking under Rate-Limited Wireless Channels (2025)</div>
+            <div class="paper-meta"><strong>Focus:</strong> Multi-agent semantic systems, task-oriented compression, resource-constrained transmission.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://arxiv.org/pdf/2506.08944" target="_blank" class="paper-link">🔗 View on arXiv</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-2">Tier 2 • Technical</span>
+            <div class="paper-title">7. A Hybrid Bit and Semantic Communication System (2026)</div>
+            <div class="paper-meta"><strong>Focus:</strong> Transition from classical communication to semantic systems—practical migration path.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://scis.scichina.com/en/2026/119301.pdf" target="_blank" class="paper-link verified">📄 Science China PDF</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-2">Tier 2 • Technical</span>
+            <div class="paper-title">8. A Resource-Aware Lightweight Semantic Communication System in Heterogeneous Edge-End Networks (2026)</div>
+            <div class="paper-meta"><strong>Focus:</strong> Edge computing + efficiency + adaptive semantic encoding for IoT/IIoT.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://www.researchgate.net/publication/404516641" target="_blank" class="paper-link">🔗 ResearchGate</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-2">Tier 2 • Technical</span>
+            <div class="paper-title">9. A Survey on Explainable AI for Semantic Communication (2026)</div>
+            <div class="paper-meta"><strong>Focus:</strong> Explainability, trust, robustness—critical for deploying AI in safety-critical networks.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://www.sciencedirect.com/science/article/pii/S1389128626001544" target="_blank" class="paper-link">🔗 ScienceDirect</a>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-2">Tier 2 • Technical</span>
+            <div class="paper-title">10. Cognitive Semantic Communication for Future Wireless Networks</div>
+            <div class="paper-meta"><strong>Focus:</strong> Knowledge graphs + reasoning + cognition—bridging AI and communication theory.</div>
+            <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://link.springer.com/book/9789819209811" target="_blank" class="paper-link">📚 Springer Book</a>
+            </div>
+        </div>
+
+        <h2 style="border-left-color: #6c757d; margin-top:40px;">Tier 3 — Foundational Classics (Still Essential)</h2>
+        
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">11. Deep Learning Enabled Semantic Communication Systems</div>
+            <div class="paper-meta"><strong>Why read:</strong> One of the first papers to apply deep learning to semantic communication—historical context.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://arxiv.org/search/?query=Deep+Learning+Enabled+Semantic+Communication+Systems" target="_blank">arXiv Search</a> | <a href="https://scholar.google.com/scholar?q=Deep+Learning+Enabled+Semantic+Communication+Systems" target="_blank">Google Scholar</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">12. Semantic Communications: Principles and Challenges</div>
+            <div class="paper-meta"><strong>Why read:</strong> Early conceptual framework—defines core terminology still used today.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://arxiv.org/search/?query=Semantic+Communications+Principles+and+Challenges" target="_blank">arXiv Search</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">13. Goal-Oriented Semantic Communication</div>
+            <div class="paper-meta"><strong>Why read:</strong> Introduces task-oriented metrics—foundational for modern semantic communication evaluation.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://arxiv.org/search/?query=Goal-Oriented+Semantic+Communication" target="_blank">arXiv Search</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">14. Task-Oriented Semantic Communications</div>
+            <div class="paper-meta"><strong>Why read:</strong> Extends goal-oriented framework to specific applications (e.g., classification, control).</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://arxiv.org/search/?query=Task-Oriented+Semantic+Communications" target="_blank">arXiv Search</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">15. Deep Joint Source-Channel Coding for Wireless Image Transmission</div>
+            <div class="paper-meta"><strong>Why read:</strong> Seminal work on end-to-end learning for communication—basis for many semantic communication approaches.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://arxiv.org/search/?query=Deep+Joint+Source-Channel+Coding+Wireless+Image+Transmission" target="_blank">arXiv Search</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">16. Semantic-Aware Resource Allocation in Wireless Networks</div>
+            <div class="paper-meta"><strong>Why read:</strong> Bridges semantic communication with traditional resource management—practical systems perspective.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://scholar.google.com/scholar?q=semantic-aware+resource+allocation+wireless+networks" target="_blank">Google Scholar</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">17. Knowledge Base Enabled Semantic Communication</div>
+            <div class="paper-meta"><strong>Why read:</strong> Introduces knowledge graphs for semantic encoding—key for reasoning-based communication.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://scholar.google.com/scholar?q=knowledge+base+enabled+semantic+communication" target="_blank">Google Scholar</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">18. Semantic Communication for Internet of Things</div>
+            <div class="paper-meta"><strong>Why read:</strong> Applies semantic communication to IoT constraints—energy efficiency, low latency, massive scale.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://scholar.google.com/scholar?q=semantic+communication+for+internet+of+things" target="_blank">Google Scholar</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">19. Semantic Communication Security and Privacy</div>
+            <div class="paper-meta"><strong>Why read:</strong> Addresses security challenges unique to semantic communication—critical for deployment.</div>
+            <div class="paper-meta"><strong>Search:</strong> <a href="https://scholar.google.com/scholar?q=semantic+communication+security+privacy" target="_blank">Google Scholar</a></div>
+        </div>
+
+        <div class="paper-card">
+            <span class="tier-badge tier-3">Tier 3 • Classic</span>
+            <div class="paper-title">20. Best Readings in Semantic Communications (Curated Bibliography)</div>
+            <div class="paper-meta"><strong>Why read:</strong> Official IEEE Communications Society curated list—authoritative starting point for literature review.</div>
+            <div class="paper-meta" style="margin-top:10px;">
+                <a href="https://www.comsoc.org/publications/best-readings/semantic-communications" target="_blank" class="paper-link verified">🌐 IEEE ComSoc</a>
+            </div>
+        </div>
+
+        <div class="warning-box" style="margin-top:30px;">
+            <h3>📋 For Your Literature Review Assignment:</h3>
+            <ol>
+                <li><strong>Select one paper</strong> from this list (or propose your own with instructor approval).</li>
+                <li><strong>Download the PDF</strong> and read it carefully—focus on methodology, not just results.</li>
+                <li><strong>Use the <a href="3. process.html">Literature Review Matrix</a> template</strong> to analyze:
+                    <ul>
+                        <li>What problem does it solve?</li>
+                        <li>What methodology/approach is used?</li>
+                        <li>What are the key findings?</li>
+                        <li>What limitations/gaps remain?</li>
+                        <li>How is it relevant to YOUR proposed research?</li>
+                    </ul>
+                </li>
+                <li><strong>Write a 2-3 page critical review</strong> focusing on methodology critique (not just summary).</li>
+                <li><strong>Submit via email</strong> to tesfamichael.gegziabher@aait.edu.et with subject: <code>ECEG-6101 - [Your Name] - Article Review</code></li>
+            </ol>
+        </div>
+
+
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

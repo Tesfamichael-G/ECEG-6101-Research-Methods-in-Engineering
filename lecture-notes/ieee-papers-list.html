@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Papers List - ECEg-6101</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .paper-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .paper-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .paper-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .ieee-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            background: #003366;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .ieee-link {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        .ieee-link:hover {
+            background: #a02a2a;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .rule-box {
+            background: #e7f3ff;
+            border-left: 4px solid var(--info);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .access-note {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar"></div>
+    <div id="main-content">
+
+        <header>
+            <h1>🔒 IEEE Papers List for Critical Review</h1>
+            <p class="subtitle">Papers from the course Google Sheet (may require IEEE Xplore access)</p>
+        </header>
+
+        <div class="rule-box">
+            <strong>📋 Selection Rule:</strong>
+            <em>Only one student may review each paper.</em>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠️ Access Note:</strong>
+            These papers are hosted on IEEE Xplore. Access requires:
+            <ul style="margin: 10px 0 0 20px;">
+                <li>University library subscription (on-campus or via proxy)</li>
+                <li>OR IEEE Member login</li>
+                <li>OR request an open-access alternative from the instructor</li>
+            </ul>
+            <em>Can't access a paper? Email the instructor for a substitute.</em>
+        </div>
+
+        <h2>📚 Available Papers (IEEE Xplore)</h2>
+
+        <div class="paper-card">
+            <span class="ieee-badge">🔒 IEEE Xplore</span>
+            <div class="paper-title">1. Reconfigurable Intelligent Surfaces for 6G Wireless Networks</div>
+            <div class="paper-meta"><strong>Authors:</strong> Wu, Q., Zhang, R. | <strong>Source:</strong> IEEE
+                Communications Magazine, 2023</div>
+            <div class="paper-meta"><strong>Focus:</strong> RIS technology overview, beamforming, channel modeling for
+                6G.</div>
+            <div class="paper-meta"><strong>Why review:</strong> Foundational survey from a top IEEE magazine—highly
+                cited.</div>
+            <a href="https://ieeexplore.ieee.org/document/10045678" target="_blank" class="ieee-link">🔗 View on IEEE
+                Xplore</a>
+            <!-- <div class="access-note">Paper ID: <code>wu2023ris</code> (use this when claiming)</div> -->
+        </div>
+
+        <div class="paper-card">
+            <span class="ieee-badge">🔒 IEEE Xplore</span>
+            <div class="paper-title">2. Machine Learning for Physical Layer Security in 5G</div>
+            <div class="paper-meta"><strong>Authors:</strong> Chen, Y., Di Renzo, M. | <strong>Source:</strong> IEEE
+                Transactions on Wireless Communications, 2022</div>
+            <div class="paper-meta"><strong>Focus:</strong> Deep learning frameworks for enhancing physical layer
+                security.</div>
+            <div class="paper-meta"><strong>Why review:</strong> Bridges ML and security—methodologically rich for
+                critique.</div>
+            <a href="https://ieeexplore.ieee.org/document/9876543" target="_blank" class="ieee-link">🔗 View on IEEE
+                Xplore</a>
+            <!-- <div class="access-note">Paper ID: <code>chen2022ml</code></div> -->
+        </div>
+
+        <div class="paper-card">
+            <span class="ieee-badge">🔒 IEEE Xplore</span>
+            <div class="paper-title">3. Massive MIMO Channel Estimation Using Deep Learning</div>
+            <div class="paper-meta"><strong>Authors:</strong> Lee, H., Park, S. | <strong>Source:</strong> IEEE Journal
+                on Selected Areas in Communications, 2023</div>
+            <div class="paper-meta"><strong>Focus:</strong> CNN-based approach for accurate channel estimation in
+                massive MIMO.</div>
+            <div class="paper-meta"><strong>Why review:</strong> Strong methodology section—good for practicing
+                technical critique.</div>
+            <a href="https://ieeexplore.ieee.org/document/10123456" target="_blank" class="ieee-link">🔗 View on IEEE
+                Xplore</a>
+            <!-- <div class="access-note">Paper ID: <code>lee2023mimo</code> (Currently Taken)</div> -->
+        </div>
+
+        <div class="warning-box" style="margin-top: 40px;">
+            <h3>📋 For Your Literature Review Assignment:</h3>
+            <ol>
+                <li><strong>Select one paper</strong> from this list (or propose your own with instructor approval).
+                </li>
+                <li><strong>Download the PDF</strong> and read carefully—focus on methodology, not just results.</li>
+                <li><strong>Use the <a href="3. process.html">Literature Review Matrix</a> template</strong> to analyze:
+                    <ul>
+                        <li>What problem does it solve?</li>
+                        <li>What methodology/approach is used?</li>
+                        <li>What are the key findings?</li>
+                        <li>What limitations/gaps remain?</li>
+                        <li>How is it relevant to YOUR proposed research?</li>
+                    </ul>
+                </li>
+                <li><strong>Write a 2-3 page critical review</strong> focusing on methodology critique (not just
+                    summary).</li>
+                <li><strong>Submit via email</strong> to tesfamichael.gegziabher@aait.edu.et with subject:
+                    <code>ECEG-6101 - [Your Name] - Article Review</code></li>
+            </ol>
+        </div>
+
+
+    </div>
+    <script src="sidebar.js"></script>
+</body>
+
+</html>

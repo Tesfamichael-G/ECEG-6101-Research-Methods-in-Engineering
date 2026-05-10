@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example: Technical Report Structure - ECEG-6101</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .example-banner {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .report-section {
+            background: #fff;
+            border: 2px solid #f5576c;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .section-badge {
+            background: #f5576c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .figure-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 40px;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .tip-callout {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 12px 15px;
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+        table.report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table.report-table th, table.report-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table.report-table th {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar"></div>
+    <div id="main-content">
+        
+        <div class="example-banner">
+            <h1>📄 Example: Technical Report Structure</h1>
+            <p>Sample IMRaD format for IEEE-style journal paper - ECEg-6101</p>
+        </div>
+
+        <!-- Title & Abstract -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">TITLE & ABSTRACT</span>
+            </div>
+            <h2 style="text-align: center; color: var(--primary);">Deep Learning-Based Channel Estimation for Massive MIMO Systems in 6G Terahertz Bands</h2>
+            <p style="text-align: center; font-style: italic;">Alex Johnson, Student Member, IEEE, and Dr. Sarah Chen, Senior Member, IEEE</p>
+            
+            <h3>Abstract</h3>
+            <div class="tip-callout">
+                <strong>💡 Structure:</strong> 1 sentence context + 1 sentence problem + 1 sentence method + 1 sentence result + 1 sentence implication
+            </div>
+            <p><strong>Context:</strong> Terahertz (THz) communication is a key enabler for 6G networks, promising Tbps data rates. <strong>Problem:</strong> However, accurate channel estimation in THz Massive MIMO systems is challenging due to severe hardware impairments and extreme channel sparsity. <strong>Method:</strong> This paper proposes a convolutional-transformer neural network (CT-Net) that jointly learns spatial and temporal correlations from pilot signals under realistic RF impairments including phase noise and IQ imbalance. <strong>Result:</strong> Simulation results demonstrate that CT-Net achieves 18.3% lower NMSE compared to traditional MMSE and 12.7% improvement over recent deep learning baselines at SNR = 15 dB, while maintaining inference latency below 1 ms. <strong>Implication:</strong> The proposed method enables robust beamforming for practical 6G THz deployments with non-ideal hardware.</p>
+            <p><strong>Index Terms:</strong> 6G, Terahertz communications, Massive MIMO, Channel estimation, Deep learning, Hardware impairments</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">1. INTRODUCTION</span>
+            </div>
+            <div class="tip-callout">
+                <strong>💡 Funnel Approach:</strong> Broad context → Specific problem → Your solution → Contributions
+            </div>
+            
+            <h3>1.1 Background</h3>
+            <p>The exponential growth in mobile data traffic demands spectral efficiencies beyond the capabilities of sub-6 GHz bands. Terahertz (0.1–10 THz) spectrum offers vast bandwidth for 6G networks [1]. Massive MIMO with hundreds of antennas compensates for severe THz path loss through narrow beamforming [2].</p>
+            
+            <h3>1.2 Problem Statement</h3>
+            <p>Accurate Channel State Information (CSI) is critical for beamforming. However, existing estimators (LS, MMSE, OMP) assume ideal RF chains [3]. In practice, THz transceivers suffer from phase noise, IQ imbalance, and power amplifier nonlinearities [4], causing significant NMSE degradation.</p>
+            
+            <h3>1.3 Contributions</h3>
+            <div class="tip-callout">
+                <strong>💡 List 3-4 specific, measurable contributions</strong>
+            </div>
+            <ol>
+                <li>We propose CT-Net, a hybrid CNN-Transformer architecture for THz channel estimation under hardware impairments.</li>
+                <li>We develop a realistic impairment model combining phase noise, IQ imbalance, and quantization errors for THz Massive MIMO.</li>
+                <li>We demonstrate 18.3% NMSE improvement over MMSE with inference latency < 1 ms, suitable for real-time beamforming.</li>
+            </ol>
+        </div>
+
+        <!-- System Model -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">2. SYSTEM MODEL</span>
+            </div>
+            
+            <h3>2.1 Network Topology</h3>
+            <p>We consider a single-cell downlink Massive MIMO system with a base station (BS) equipped with <em>N<sub>t</sub></em> = 256 antennas serving <em>K</em> = 16 single-antenna users.</p>
+            
+            <h3>2.2 Channel Model</h3>
+            <div class="code-block">
+<strong>Received signal:</strong><br>
+<strong>y</strong> = <strong>Hx</strong> + <strong>n</strong><br><br>
+<strong>where:</strong><br>
+<strong>H</strong> ∈ ℂ<sup>K×N<sub>t</sub></sup> is the channel matrix<br>
+<strong>x</strong> is the transmitted pilot vector<br>
+<strong>n</strong> ~ CN(0, σ²<strong>I</strong>) is AWGN
+            </div>
+            
+            <p>The THz channel follows a clustered multipath model [5]:</p>
+            <div class="code-block">
+<strong>H</strong> = √(N<sub>t</sub>/L) Σ<sub>l=1</sub><sup>L</sup> α<sub>l</sub> <strong>a</strong><sub>r</sub>(θ<sub>l</sub>)<strong>a</strong><sub>t</sub><sup>H</sup>(φ<sub>l</sub>)
+            </div>
+            
+            <h3>2.3 Hardware Impairment Model</h3>
+            <p>We model phase noise as a Wiener process [6]:</p>
+            <div class="code-block">
+θ[n] = θ[n-1] + Δθ, where Δθ ~ N(0, σ²<sub>θ</sub>)
+            </div>
+        </div>
+
+        <!-- Proposed Method -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">3. PROPOSED METHOD</span>
+            </div>
+            
+            <h3>3.1 CT-Net Architecture</h3>
+            <div class="figure-placeholder">
+                <strong>[Figure 1: CT-Net Architecture Diagram]</strong><br>
+                <em>Show: Input (pilot signals) → CNN layers (spatial features) → Transformer blocks (temporal correlation) → Output (channel estimate)</em>
+            </div>
+            
+            <h3>3.2 Training Strategy</h3>
+            <ul>
+                <li><strong>Loss Function:</strong> NMSE loss: ℒ = E[||<strong>H</strong> - Ĥ||² / ||<strong>H</strong>||²]</li>
+                <li><strong>Optimizer:</strong> Adam with learning rate 10⁻⁴</li>
+                <li><strong>Dataset:</strong> 100,000 channel realizations (80% train, 10% validation, 10% test)</li>
+            </ul>
+        </div>
+
+        <!-- Results -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">4. RESULTS</span>
+            </div>
+            <div class="tip-callout">
+                <strong>💡 Present facts objectively. Save interpretation for Discussion.</strong>
+            </div>
+            
+            <h3>4.1 Simulation Parameters</h3>
+            <table class="report-table">
+                <tr><th>Parameter</th><th>Value</th></tr>
+                <tr><td>Carrier Frequency</td><td>300 GHz</td></tr>
+                <tr><td>Bandwidth</td><td>10 GHz</td></tr>
+                <tr><td>BS Antennas (N<sub>t</sub>)</td><td>256</td></tr>
+                <tr><td>Number of Users (K)</td><td>16</td></tr>
+                <tr><td>Phase Noise Variance (σ²<sub>θ</sub>)</td><td>0.01 rad²</td></tr>
+            </table>
+            
+            <h3>4.2 NMSE Performance</h3>
+            <div class="figure-placeholder">
+                <strong>[Figure 2: NMSE vs. SNR]</strong><br>
+                <em>Plot: SNR (0–30 dB) on x-axis, NMSE (dB) on y-axis. Compare: LS, MMSE, OMP, DCE-CNN [7], CT-Net (proposed)</em>
+            </div>
+            <p>Fig. 2 shows that CT-Net achieves 18.3% lower NMSE than MMSE at SNR = 15 dB. The performance gap widens at higher SNR, indicating better robustness to hardware impairments.</p>
+            
+            <h3>4.3 Computational Complexity</h3>
+            <table class="report-table">
+                <tr><th>Method</th><th>Inference Time (ms)</th><th>FLOPs</th></tr>
+                <tr><td>MMSE</td><td>0.8</td><td>1.2 × 10⁶</td></tr>
+                <tr><td>DCE-CNN [7]</td><td>2.3</td><td>3.5 × 10⁶</td></tr>
+                <tr><td><strong>CT-Net (proposed)</strong></td><td><strong>0.9</strong></td><td><strong>1.8 × 10⁶</strong></td></tr>
+            </table>
+        </div>
+
+        <!-- Discussion -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">5. DISCUSSION</span>
+            </div>
+            <div class="tip-callout">
+                <strong>💡 Answer: Why? Comparison? Implications? Limitations? Future work?</strong>
+            </div>
+            
+            <h3>5.1 Interpretation</h3>
+            <p>The superior performance of CT-Net stems from its ability to capture both spatial correlations (via CNN) and temporal dependencies (via Transformer) in the channel, which traditional methods ignore.</p>
+            
+            <h3>5.2 Comparison with Prior Work</h3>
+            <p>Unlike DCE-CNN [7] which uses only convolutional layers, our hybrid architecture reduces overfitting with limited training data. The 12.7% improvement validates the importance of modeling temporal correlation.</p>
+            
+            <h3>5.3 Practical Implications</h3>
+            <p>With inference latency < 1 ms, CT-Net is suitable for real-time beamforming in 6G systems with coherence time ~10 ms.</p>
+            
+            <h3>5.4 Limitations</h3>
+            <div class="tip-callout">
+                <strong>💡 Be honest about limitations—this strengthens credibility</strong>
+            </div>
+            <ul>
+                <li>Training requires GPU acceleration (~6 hours on NVIDIA V100)</li>
+                <li>Performance degrades under extreme mobility (>120 km/h) due to rapid channel variation</li>
+            </ul>
+            
+            <h3>5.5 Future Work</h3>
+            <ul>
+                <li>Extend to multi-cell scenarios with inter-cell interference</li>
+                <li>Investigate federated learning for privacy-preserving distributed training</li>
+            </ul>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">6. CONCLUSION</span>
+            </div>
+            <p>This paper proposed CT-Net for THz Massive MIMO channel estimation under hardware impairments. Simulation results demonstrated 18.3% NMSE improvement over MMSE with real-time inference capability. The method enables robust beamforming for practical 6G deployments.</p>
+        </div>
+
+        <!-- References -->
+        <div class="report-section">
+            <div class="section-header">
+                <span class="section-badge">REFERENCES</span>
+            </div>
+            <div class="tip-callout">
+                <strong>💡 Use IEEE format consistently</strong>
+            </div>
+            <ol style="font-size: 0.9em;">
+                <li>H. Elayan et al., "Terahertz Band Communication: Status, Challenges, and Roadmap," <em>IEEE Access</em>, vol. 12, 2024.</li>
+                <li>Q. Wu and R. Zhang, "RIS-Assisted 6G: Challenges and Opportunities," <em>IEEE Commun. Mag.</em>, 2024.</li>
+                <li>T. L. Marzetta, <em>Fundamentals of Massive MIMO</em>. Cambridge Univ. Press, 2016.</li>
+                <li>F. Liu et al., "Hardware-Impairment-Aware Channel Estimation," <em>IEEE Trans. Wireless Commun.</em>, 2024.</li>
+                <li>3GPP TR 38.901, "Study on Channel Model for Frequencies from 0.5 to 100 GHz," 2023.</li>
+                <li>A. Papazafeiropoulos et al., "Phase Noise in Massive MIMO," <em>IEEE Signal Process. Lett.</em>, 2022.</li>
+                <li>Y. Chen et al., "Deep Learning for Massive MIMO Channel Estimation," <em>IEEE Commun. Surveys Tuts.</em>, 2023.</li>
+            </ol>
+        </div>
+
+        <div style="background: #d4edda; border: 2px solid #28a745; padding: 20px; border-radius: 8px; margin-top: 30px;">
+            <h3>✅ Takeaways:</h3>
+            <ul>
+                <li><strong>Clear Structure:</strong> Follows IMRaD format precisely</li>
+                <li><strong>Mathematical Rigor:</strong> Equations properly formatted and explained</li>
+                <li><strong>Visual Elements:</strong> Figures/tables referenced and described</li>
+                <li><strong>Objective Results:</strong> Facts separated from interpretation</li>
+                <li><strong>Critical Discussion:</strong> Limitations acknowledged, future work outlined</li>
+                <li><strong>Proper Citations:</strong> IEEE format, recent references (2022–2024)</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

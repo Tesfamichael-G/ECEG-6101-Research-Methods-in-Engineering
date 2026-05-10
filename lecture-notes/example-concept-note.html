@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example: Research Concept Note - ECEg-6101</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .example-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .example-box {
+            background: #fff;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .example-label {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .annotation {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .annotation strong {
+            color: #856404;
+        }
+        table.example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table.example-table th, table.example-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table.example-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar"></div>
+    <div id="main-content">
+        
+        <div class="example-banner">
+            <h1>📝 Example: Research Topic Concept Note</h1>
+            <p>Sample submission for Week 4 assignment - ECEG-6101</p>
+        </div>
+
+        <div class="example-box">
+            <span class="example-label">STUDENT SUBMISSION EXAMPLE</span>
+            
+            <h2>Research Topic Concept Note</h2>
+            
+            <table class="example-table">
+                <tr>
+                    <td><strong>Student Name:</strong></td>
+                    <td>Alex Johnson</td>
+                </tr>
+                <tr>
+                    <td><strong>Student ID:</strong></td>
+                    <td>2024ECE001</td>
+                </tr>
+                <tr>
+                    <td><strong>Date:</strong></td>
+                    <td>April 28, 2026</td>
+                </tr>
+                <tr>
+                    <td><strong>Proposed Thesis Title:</strong></td>
+                    <td><em>Deep Learning-Based Channel Estimation for Massive MIMO Systems in 6G Terahertz Bands under Hardware Impairments</em></td>
+                </tr>
+            </table>
+
+            <h3>1. Background & Context</h3>
+            <div class="annotation">
+                <strong>💡 Annotation:</strong> Notice how this starts broad (6G/THz) and narrows to the specific challenge (hardware impairments).
+            </div>
+            <p>6G networks will leverage Terahertz (THz) bands (0.1–10 THz) to achieve Tbps data rates and ultra-massive connectivity. Massive MIMO is essential to overcome severe THz path loss via highly directional beamforming. Accurate Channel State Information (CSI) is therefore critical. However, THz transceivers suffer from significant hardware impairments (phase noise, IQ imbalance, power amplifier non-linearities) and extreme channel sparsity, making traditional linear estimation techniques inadequate for next-generation deployments.</p>
+
+            <h3>2. Problem Statement</h3>
+            <div class="annotation">
+                <strong>💡 Annotation:</strong> Clear Hook-Gap-Goal structure. The problem is specific, measurable, and technically grounded.
+            </div>
+            <p><strong>Hook:</strong> THz Massive MIMO promises unprecedented spectral efficiency.</p>
+            <p><strong>Gap:</strong> Existing channel estimators (LS, MMSE, compressive sensing) assume ideal RF chains and perfect line-of-sight, causing severe NMSE degradation under realistic hardware impairments and limited pilot overhead.</p>
+            <p><strong>Goal:</strong> This research proposes a hardware-aware deep learning framework that accurately recovers CSI from noisy pilot signals while maintaining low computational complexity for real-time beamforming in 6G systems.</p>
+
+            <h3>3. Research Questions</h3>
+            <ol>
+                <li>How can neural network architectures be optimized to estimate THz Massive MIMO channels under realistic RF impairments and sparse pilot patterns?</li>
+                <li>What is the trade-off between estimation accuracy (NMSE), inference latency, and robustness to phase noise compared to traditional baselines?</li>
+            </ol>
+
+            <h3>4. Proposed Methodology</h3>
+            <div class="annotation">
+                <strong>💡 Annotation:</strong> Specific tools, models, and metrics are listed. This shows feasibility.
+            </div>
+            <ul>
+                <li><strong>Approach:</strong> Simulation-based comparative analysis with supervised deep learning</li>
+                <li><strong>System Model:</strong>
+                    <ul>
+                        <li>Topology: Single-cell downlink Massive MIMO (64–256 BS antennas, 8–16 users)</li>
+                        <li>Channel Model: 3GPP-compliant THz ray-tracing + clustered multipath + hardware impairment noise</li>
+                        <li>Hardware Constraints: Limited RF chains, quantized phase shifters, phase noise model</li>
+                        <li>Signal Processing: OFDM modulation, pilot-assisted estimation, hybrid beamforming</li>
+                    </ul>
+                </li>
+                <li><strong>Tools:</strong> Python (PyTorch), MATLAB 5G/THz Toolbox, CUDA GPU acceleration</li>
+                <li><strong>Data:</strong> Synthetic CSI datasets (DeepMIMO extension) augmented with impairment models</li>
+                <li><strong>Metrics:</strong> Normalized MSE, Spectral Efficiency, BER, Inference FLOPs/Latency</li>
+            </ul>
+
+            <h3>5. Expected Contribution</h3>
+            <ol>
+                <li>A novel convolutional-transformer architecture tailored for THz CSI recovery under non-ideal hardware</li>
+                <li>Quantitative demonstration of ≥15% NMSE improvement over OMP/MMSE baselines at SNR < 20dB</li>
+                <li>Open-source simulation code and pre-trained models for reproducible 6G physical layer research</li>
+            </ol>
+
+            <h3>6. Feasibility Assessment</h3>
+            <div class="annotation">
+                <strong>💡 Annotation:</strong> Acknowledges risks and provides mitigation strategies—shows maturity.
+            </div>
+            <ul>
+                <li>✅ <strong>Software/Hardware Access:</strong> University MATLAB licenses available; GPU lab access for PyTorch training</li>
+                <li>✅ <strong>Math/ML Background:</strong> Completed Wireless Comm, DSP, and Intro to Deep Learning courses</li>
+                <li>⚠️ <strong>Risk:</strong> THz ray-tracing is computationally intensive</li>
+                <li>✅ <strong>Mitigation:</strong> Use pre-generated DeepMIMO datasets initially, then scale to custom channel realizations with GPU batch processing</li>
+            </ul>
+
+            <h3>7. Initial References</h3>
+            <div class="annotation">
+                <strong>💡 Annotation:</strong> Recent (2023–2024), IEEE-published, directly relevant papers.
+            </div>
+            <ol>
+                <li>Elayan, H., et al. (2024). "Terahertz Band Communication: Status, Challenges, and Roadmap." <em>IEEE Access</em>.</li>
+                <li>Liu, F., et al. (2024). "Hardware-Impairment-Aware Channel Estimation for THz Communications Using Transformers." <em>IEEE Trans. Wireless Commun.</em></li>
+                <li>O'Shea, T. J., & Hoydis, J. (2023). "Deep Learning for Physical Layer Communications: Principles and Applications." <em>IEEE JSAC</em>.</li>
+                <li>Chen, Y., et al. (2023). "Deep Learning for Massive MIMO Channel Estimation: A Survey." <em>IEEE Commun. Surveys & Tutorials</em>.</li>
+            </ol>
+        </div>
+
+        <div style="background: #d4edda; border: 2px solid #28a745; padding: 20px; border-radius: 8px; margin-top: 30px;">
+            <h3>✅ Takeaways:</h3>
+            <ul>
+                <li><strong>Specific & Technical:</strong> Uses precise engineering terminology (THz, Massive MIMO, NMSE, OFDM)</li>
+                <li><strong>Feasible:</strong> Clear tools, datasets, and mitigation strategies identified</li>
+                <li><strong>Novel:</strong> Addresses hardware impairments—a real-world challenge often ignored in theory</li>
+                <li><strong>Measurable:</strong> Success criteria defined (≥15% NMSE improvement)</li>
+                <li><strong>Well-Referenced:</strong> Recent, high-impact IEEE papers support the methodology</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

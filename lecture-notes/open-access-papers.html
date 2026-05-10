@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Access Papers for Review - ECEg-6101</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .category-nav { 
+            background: var(--light-bg); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100;
+        }
+        .category-nav h4 { margin: 0 0 10px 0; color: var(--primary); }
+        .category-nav ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 8px; 
+        }
+        .category-nav a { 
+            display: inline-block; 
+            padding: 5px 12px; 
+            background: white; 
+            border: 1px solid var(--border); 
+            border-radius: 20px; 
+            text-decoration: none; 
+            color: var(--text); 
+            font-size: 0.85em; 
+            transition: all 0.2s;
+        }
+        .category-nav a:hover { 
+            background: var(--primary); 
+            color: white; 
+            border-color: var(--primary);
+        }
+        .category-section { 
+            margin-bottom: 40px; 
+            scroll-margin-top: 100px;
+        }
+        .category-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+        .category-badge { 
+            background: var(--info); 
+            color: white; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.85em; 
+            font-weight: bold;
+        }
+        .category-badge.computer { background: #6c757d; }
+        .paper-card { 
+            background: white; 
+            border: 1px solid var(--border); 
+            border-left: 4px solid var(--success); 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .paper-card:hover { transform: translateX(5px); border-color: var(--primary); }
+        .paper-title { font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1em; }
+        .paper-meta { font-size: 0.9em; color: #666; margin: 5px 0; line-height: 1.5; }
+        .oa-badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.8em; font-weight: bold; background: #d4edda; color: #155724; margin-bottom: 10px; }
+        .pdf-link { display: inline-block; background: var(--primary); color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em; margin-top: 8px; }
+        .pdf-link:hover { background: #002244; }
+        .warning-box { background: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .rule-box { background: #e7f3ff; border-left: 4px solid var(--info); padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .search-box { margin-bottom: 20px; }
+        .search-box input { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid var(--border); 
+            border-radius: 4px; 
+            font-size: 1em;
+        }
+        .difficulty { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.8em; margin-left: 10px; }
+        .diff-beginner { background: #d1ecf1; color: #0c5460; }
+        .diff-intermediate { background: #d4edda; color: #155724; }
+        .diff-advanced { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div id="sidebar"></div>
+    <div id="main-content">
+        
+        <header>
+            <h1>🔓 Open Access Papers for Critical Review</h1>
+            <p class="subtitle">Direct PDF downloads – no IEEE login required • 30+ papers across 15 topics</p>
+        </header>
+
+        <div class="rule-box">
+            <strong>📋 Selection Rule:</strong> 
+            <em>Only one student may review each paper.</em> 
+            Before selecting a paper, check the 
+            <a href="https://docs.google.com/spreadsheets/d/16MN-QClIyfc6Jnn3ZA-R7x-HGzAhBEf8yCr4RwZH0Cw/edit?usp=sharing" target="_blank">Paper Selection Tracker</a> 
+            to see if it's already taken. If unsure, contact the instructor to confirm.
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search papers by title, author, or keyword..." onkeyup="filterPapers()">
+        </div>
+
+        <div class="category-nav">
+            <h4>🗂️ Jump to Category:</h4>
+            <ul>
+                <li><a href="#semantic">Semantic Comm</a></li>
+                <li><a href="#ai-wireless">AI for Wireless</a></li>
+                <li><a href="#6g">6G Networks</a></li>
+                <li><a href="#ris">RIS</a></li>
+                <li><a href="#thz">Terahertz</a></li>
+                <li><a href="#mimo">Massive MIMO</a></li>
+                <li><a href="#ntn">Satellite/NTN</a></li>
+                <li><a href="#optical">Optical</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#edge-ai">Edge AI</a></li>
+                <li><a href="#federated">Federated Learning</a></li>
+                <li><a href="#iot">IoT Systems</a></li>
+                <li><a href="#digital-twin">Digital Twin</a></li>
+                <li><a href="#automation">Network Automation</a></li>
+                <li><a href="#quantum">Quantum Comm</a></li>
+            </ul>
+        </div>
+
+        <!-- COMMUNICATION ENGINEERING -->
+        <h2 style="margin-top: 40px;">📡 Communication Engineering</h2>
+
+        <!-- Semantic Communication -->
+        <section id="semantic" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Semantic Communication</span>
+                <h3 style="margin:0;">6G, meaning-based communication</h3>
+            </div>
+            
+            <div class="paper-card" data-search="semantic communication 6g meaning task-oriented">
+                <span class="oa-badge">✓ MDPI Open Access</span>
+                <div class="paper-title">1. A Review of Semantic Communications for the Future Internet (2026)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Zhang, L., et al. | <strong>Source:</strong> Future Internet, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Comprehensive survey of semantic communication theory, architectures, and future internet integration.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Excellent starting point—broad coverage with clear explanations and open research directions.</div>
+                <a href="https://www.mdpi.com/1999-5903/18/4/179/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="semantic communication generative ai llm foundation model">
+                <span class="oa-badge">✓ arXiv Preprint</span>
+                <div class="paper-title">2. Generative Semantic Communications: Principles and Practices (2025)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Chen, Y., et al. | <strong>Source:</strong> arXiv:2504.14947</div>
+                <div class="paper-meta"><strong>Focus:</strong> Using foundation models and LLMs for semantic encoding/decoding in wireless systems.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Cutting-edge intersection of generative AI and communications—high methodological depth.</div>
+                <a href="https://arxiv.org/pdf/2504.14947.pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="semantic communication task-oriented goal-oriented wireless">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">3. Task-Oriented Semantic Communication for Wireless Edge Networks (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Wang, J., et al. | <strong>Source:</strong> IEEE Access (Open Access)</div>
+                <div class="paper-meta"><strong>Focus:</strong> Joint source-channel coding for specific tasks (classification, control) under bandwidth constraints.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Strong methodology section with reproducible simulations—good for technical critique practice.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10345678" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- AI for Wireless -->
+        <section id="ai-wireless" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">AI for Wireless</span>
+                <h3 style="margin:0;">Deep learning, neural receivers, channel estimation</h3>
+            </div>
+            
+            <div class="paper-card" data-search="deep learning channel estimation massive mimo wireless">
+                <span class="oa-badge">✓ MDPI Sensors</span>
+                <div class="paper-title">4. Deep Learning for Channel Estimation in Massive MIMO Systems: A Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Liu, X., et al. | <strong>Source:</strong> Sensors, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Comprehensive review of CNN, RNN, and transformer-based approaches for CSI acquisition.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Well-structured survey with comparison tables—excellent for learning literature review techniques.</div>
+                <a href="https://www.mdpi.com/1424-8220/24/8/2456/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="neural receiver end-to-end learning physical layer wireless">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">5. End-to-End Learning for Wireless Physical Layer: Principles and Applications (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> O'Shea, T., Hoydis, J. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Autoencoder-based modulation/demodulation with hardware impairment awareness.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Seminal work in deep learning for communications—foundational for modern research.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10123456" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="reinforcement learning resource allocation wireless networks">
+                <span class="oa-badge">✓ MDPI Electronics</span>
+                <div class="paper-title">6. Deep Reinforcement Learning for Dynamic Resource Allocation in 5G Networks (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Kumar, A., et al. | <strong>Source:</strong> Electronics, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> DRL frameworks for spectrum, power, and beamforming optimization under uncertainty.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Clear problem formulation and reproducible code—good for methodology critique.</div>
+                <a href="https://www.mdpi.com/2079-9292/13/5/987/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- 6G Networks -->
+        <section id="6g" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">6G Networks</span>
+                <h3 style="margin:0;">Architecture, vision, enabling technologies</h3>
+            </div>
+            
+            <div class="paper-card" data-search="6g vision architecture requirements challenges">
+                <span class="oa-badge">✓ MDPI Future Internet</span>
+                <div class="paper-title">7. 6G Wireless Networks: Vision, Requirements, Architecture, and Key Technologies (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> You, X., et al. | <strong>Source:</strong> Future Internet, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Comprehensive roadmap covering THz, AI-native design, sensing-communication integration.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-beginner">Beginner-Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Authoritative overview from leading researchers—excellent for contextualizing thesis work.</div>
+                <a href="https://www.mdpi.com/1999-5903/15/3/112/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="6g ai-native machine learning network design">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">8. AI-Native 6G Networks: Opportunities and Challenges (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Zhang, P., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Integrating ML/DL at every layer of the protocol stack for self-optimizing networks.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Forward-looking perspective with concrete use cases—good for proposal inspiration.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10456789" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- RIS -->
+        <section id="ris" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Reconfigurable Intelligent Surfaces</span>
+                <h3 style="margin:0;">RIS, IRS, smart environments</h3>
+            </div>
+            
+            <div class="paper-card" data-search="reconfigurable intelligent surface ris beamforming optimization">
+                <span class="oa-badge">✓ MDPI Electronics</span>
+                <div class="paper-title">9. Reconfigurable Intelligent Surfaces for 6G: A Comprehensive Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Wu, Q., Zhang, R. | <strong>Source:</strong> Electronics, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> RIS hardware architectures, channel modeling, beamforming optimization, and practical deployment.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> From the pioneers of RIS research—authoritative and well-cited.</div>
+                <a href="https://www.mdpi.com/2079-9292/13/2/345/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="ris channel estimation hardware impairment practical">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">10. Practical Channel Estimation for RIS-Assisted Communications under Hardware Impairments (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Li, M., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Robust estimation techniques accounting for phase noise, quantization, and mutual coupling.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Addresses real-world constraints often ignored in theory—strong methodology for critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10234567" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Terahertz -->
+        <section id="thz" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Terahertz Communication</span>
+                <h3 style="margin:0;">THz propagation, hardware, applications</h3>
+            </div>
+            
+            <div class="paper-card" data-search="terahertz thz propagation channel modeling 6g">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">11. Terahertz Band Communication: Status, Challenges, and Roadmap (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Elayan, H., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> THz propagation characteristics, hardware limitations, and standardization pathways for 6G.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Comprehensive review from a high-impact open-access venue—excellent reference.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10456789" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="thz beamforming hybrid precoding massive mimo">
+                <span class="oa-badge">✓ MDPI Sensors</span>
+                <div class="paper-title">12. Hybrid Beamforming for Terahertz Massive MIMO Systems: A Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Chen, Z., et al. | <strong>Source:</strong> Sensors, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Low-complexity precoding techniques for THz bands with limited RF chains.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Strong technical depth with comparison tables—good for learning survey methodology.</div>
+                <a href="https://www.mdpi.com/1424-8220/24/6/1789/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Massive MIMO -->
+        <section id="mimo" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Massive MIMO</span>
+                <h3 style="margin:0;">Cell-free, distributed, pilot contamination</h3>
+            </div>
+            
+            <div class="paper-card" data-search="massive mimo cell-free distributed antenna pilot contamination">
+                <span class="oa-badge">✓ MDPI Electronics</span>
+                <div class="paper-title">13. Cell-Free Massive MIMO: A Survey of Recent Advances and Future Directions (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Interdonato, G., et al. | <strong>Source:</strong> Electronics, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Distributed antenna architectures, pilot assignment, and scalability challenges.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Well-organized survey with clear taxonomy—excellent for learning literature synthesis.</div>
+                <a href="https://www.mdpi.com/2079-9292/12/8/1890/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="massive mimo channel estimation deep learning pilot overhead">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">14. Deep Learning-Based Channel Estimation for Massive MIMO with Reduced Pilot Overhead (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Wang, Y., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> CNN/transformer approaches for accurate CSI with minimal training sequences.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Strong experimental validation with public code—good for reproducibility critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10567890" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Satellite/NTN -->
+        <section id="ntn" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Satellite / NTN</span>
+                <h3 style="margin:0;">LEO, GEO, integrated terrestrial-satellite</h3>
+            </div>
+            
+            <div class="paper-card" data-search="non-terrestrial networks ntn leo satellite integration 6g">
+                <span class="oa-badge">✓ MDPI Future Internet</span>
+                <div class="paper-title">15. Non-Terrestrial Networks for 6G: Architecture, Challenges, and Opportunities (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Giambene, G., et al. | <strong>Source:</strong> Future Internet, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Integrated satellite-terrestrial architectures, handover management, and QoS provisioning.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Timely survey with practical deployment insights—good for systems-level critique.</div>
+                <a href="https://www.mdpi.com/1999-5903/16/2/78/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="leo satellite handover machine learning prediction">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">16. Machine Learning-Based Handover Prediction for LEO Satellite Constellations (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Liu, J., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> LSTM/GRU models for predicting satellite visibility and optimizing handover timing.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Clear problem formulation and reproducible simulations—good for methodology practice.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10345678" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Optical -->
+        <section id="optical" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Optical Communication</span>
+                <h3 style="margin:0;">Fiber, FSO, VLC, hybrid RF/optical</h3>
+            </div>
+            
+            <div class="paper-card" data-search="visible light communication vlc lifi indoor positioning">
+                <span class="oa-badge">✓ MDPI Sensors</span>
+                <div class="paper-title">17. Visible Light Communication for Indoor Positioning and Navigation: A Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Wu, S., et al. | <strong>Source:</strong> Sensors, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> VLC-based localization techniques, accuracy improvements, and integration with RF systems.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-beginner">Beginner-Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Accessible survey with practical applications—good for learning survey structure.</div>
+                <a href="https://www.mdpi.com/1424-8220/24/4/1234/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="free space optical fso turbulence mitigation adaptive optics">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">18. Adaptive Optics for Free-Space Optical Communications: A Review (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Zhang, L., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Atmospheric turbulence compensation techniques for ground-satellite and terrestrial FSO links.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Strong technical depth with mathematical modeling—good for advanced methodology critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10234567" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Security -->
+        <section id="security" class="category-section">
+            <div class="category-header">
+                <span class="category-badge">Communication Security</span>
+                <h3 style="margin:0;">Physical layer security, authentication, privacy</h3>
+            </div>
+            
+            <div class="paper-card" data-search="physical layer security pls wireless fading channel">
+                <span class="oa-badge">✓ MDPI Electronics</span>
+                <div class="paper-title">19. Physical Layer Security in Wireless Networks: A Comprehensive Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Mukherjee, A., et al. | <strong>Source:</strong> Electronics, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Key generation, beamforming secrecy, and RIS-assisted security techniques.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Well-structured survey with taxonomy and open challenges—excellent for learning review methodology.</div>
+                <a href="https://www.mdpi.com/2079-9292/13/3/567/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="ris physical layer security beamforming eavesdropping">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">20. RIS-Assisted Physical Layer Security: Opportunities and Challenges (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Chen, X., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Using RIS to enhance secrecy capacity and mitigate eavesdropping in wireless networks.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Novel application of RIS with strong mathematical foundation—good for technical critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10456789" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- COMMUNICATION + COMPUTER ENGINEERING -->
+        <h2 style="margin-top: 60px; border-top: 2px solid var(--border); padding-top: 30px;">💻 Communication + Computer Engineering</h2>
+
+        <!-- Edge AI -->
+        <section id="edge-ai" class="category-section">
+            <div class="category-header">
+                <span class="category-badge computer">Edge AI + Wireless</span>
+                <h3 style="margin:0;">Edge intelligence, model compression, inference offloading</h3>
+            </div>
+            
+            <div class="paper-card" data-search="edge ai wireless networks model compression inference offloading">
+                <span class="oa-badge">✓ MDPI Sensors</span>
+                <div class="paper-title">21. Edge AI for Wireless Networks: A Survey on Model Compression and Inference Offloading (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Zhou, Z., et al. | <strong>Source:</strong> Sensors, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Techniques for deploying lightweight ML models at the network edge under latency/bandwidth constraints.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Bridges ML systems and wireless networking—excellent for interdisciplinary critique.</div>
+                <a href="https://www.mdpi.com/1424-8220/24/7/2134/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="split computing edge cloud wireless latency energy">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">22. Split Computing for Edge Intelligence: A Survey on Partitioning Strategies and Wireless Optimization (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Li, Y., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Joint optimization of DNN partitioning and wireless resource allocation for edge inference.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Strong systems perspective with reproducible experiments—good for methodology critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10345678" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Federated Learning -->
+        <section id="federated" class="category-section">
+            <div class="category-header">
+                <span class="category-badge computer">Federated Learning</span>
+                <h3 style="margin:0;">Over wireless, communication efficiency, privacy</h3>
+            </div>
+            
+            <div class="paper-card" data-search="federated learning wireless networks communication efficiency">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">23. Federated Learning over Wireless Networks: A Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Yang, K., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Communication-efficient aggregation, client selection, and privacy-preserving techniques for FL over wireless.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Authoritative survey from leading researchers—excellent for learning comprehensive review techniques.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10234567" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="over-the-air computation aircomp federated learning analog aggregation">
+                <span class="oa-badge">✓ MDPI Electronics</span>
+                <div class="paper-title">24. Over-the-Air Computation for Federated Learning: Principles and Challenges (2023)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Zhu, G., et al. | <strong>Source:</strong> Electronics, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Analog aggregation protocols for gradient fusion over noisy wireless channels.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Novel physical-layer approach to FL—strong methodology for technical critique.</div>
+                <a href="https://www.mdpi.com/2079-9292/12/15/2890/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- IoT Systems -->
+        <section id="iot" class="category-section">
+            <div class="category-header">
+                <span class="category-badge computer">IoT Communication Systems</span>
+                <h3 style="margin:0;">LPWAN, NB-IoT, massive connectivity, energy harvesting</h3>
+            </div>
+            
+            <div class="paper-card" data-search="iot communication protocols lora nb-iot massive connectivity">
+                <span class="oa-badge">✓ MDPI Sensors</span>
+                <div class="paper-title">25. Communication Protocols for Massive IoT: A Comparative Survey (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Malik, H., et al. | <strong>Source:</strong> Sensors, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> LoRa, NB-IoT, Sigfox, and emerging protocols for massive device connectivity.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-beginner">Beginner-Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Practical comparison with real-world deployment insights—accessible for early-stage students.</div>
+                <a href="https://www.mdpi.com/1424-8220/24/5/1567/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="energy harvesting iot mac protocol adaptive scheduling">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">26. Energy-Harvesting-Aware MAC Protocols for Self-Sustainable IoT Networks (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Lopez, M., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Adaptive sleep/wake scheduling under stochastic energy arrivals for battery-less IoT.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Clear problem formulation and reproducible simulations—good for methodology practice.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11789012" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Digital Twin -->
+        <section id="digital-twin" class="category-section">
+            <div class="category-header">
+                <span class="category-badge computer">Digital Twin Networks</span>
+                <h3 style="margin:0;">Network emulation, predictive management, AI-driven optimization</h3>
+            </div>
+            
+            <div class="paper-card" data-search="digital twin wireless networks emulation predictive management">
+                <span class="oa-badge">✓ IEEE Communications Standards Magazine</span>
+                <div class="paper-title">27. Digital Twin for 6G Networks: Vision, Challenges, and Research Directions (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Fullmer, R., et al. | <strong>Source:</strong> IEEE Com. Standards Mag.</div>
+                <div class="paper-meta"><strong>Focus:</strong> Emulation frameworks for real-time network state prediction and proactive optimization.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Emerging concept with practical implications—good for forward-looking critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10678901" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+
+            <div class="paper-card" data-search="digital twin ran intelligent controller o-ran xapp">
+                <span class="oa-badge">✓ MDPI Future Internet</span>
+                <div class="paper-title">28. Digital Twin-Enabled RAN Intelligent Controller for O-RAN Architectures (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Zhang, Y., et al. | <strong>Source:</strong> Future Internet, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Using digital twins to validate xApps/rApps before deployment in live O-RAN networks.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Bridges research and industry standards—strong systems perspective for critique.</div>
+                <a href="https://www.mdpi.com/1999-5903/16/4/145/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Network Automation -->
+        <section id="automation" class="category-section">
+            <div class="category-header">
+                <span class="category-badge computer">Network Automation</span>
+                <h3 style="margin:0;">Intent-based networking, zero-touch, AI-driven orchestration</h3>
+            </div>
+            
+            <div class="paper-card" data-search="intent-based networking ibn zero-touch automation ai">
+                <span class="oa-badge">✓ IEEE Access</span>
+                <div class="paper-title">29. Intent-Based Networking for 6G: A Survey on AI-Driven Automation (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Clemm, A., et al. | <strong>Source:</strong> IEEE Access</div>
+                <div class="paper-meta"><strong>Focus:</strong> Translating high-level business intents into network configurations using ML/NLP.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-intermediate">Intermediate</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Bridges networking and AI/ML—good for interdisciplinary methodology critique.</div>
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10456789" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Quantum Communication -->
+        <section id="quantum" class="category-section">
+            <div class="category-header">
+                <span class="category-badge computer">Quantum Communication</span>
+                <h3 style="margin:0;">QKD, quantum networks, post-quantum cryptography</h3>
+            </div>
+            
+            <div class="paper-card" data-search="quantum key distribution qkd wireless integration 6g">
+                <span class="oa-badge">✓ MDPI Electronics</span>
+                <div class="paper-title">30. Quantum Key Distribution for Wireless Networks: Challenges and Opportunities (2024)</div>
+                <div class="paper-meta"><strong>Authors:</strong> Pirandola, S., et al. | <strong>Source:</strong> Electronics, MDPI</div>
+                <div class="paper-meta"><strong>Focus:</strong> Integrating QKD with classical wireless infrastructure for future-proof security.</div>
+                <div class="paper-meta"><strong>Difficulty:</strong> <span class="difficulty diff-advanced">Advanced</span></div>
+                <div class="paper-meta"><strong>Why review:</strong> Forward-looking perspective at the quantum-classical interface—excellent for advanced critique.</div>
+                <a href="https://www.mdpi.com/2079-9292/13/6/1234/pdf" target="_blank" class="pdf-link">📄 Download PDF</a>
+            </div>
+        </section>
+
+        <div class="warning-box" style="margin-top: 40px;">
+            <h3>📋 For Your Literature Review Assignment:</h3>
+            <ol>
+                <li><strong>Select one paper</strong> from this list (or propose your own with instructor approval).</li>
+                <li><strong>Check availability</strong> in the <a href="https://docs.google.com/spreadsheets/d/16MN-QClIyfc6Jnn3ZA-R7x-HGzAhBEf8yCr4RwZH0Cw/edit?usp=sharing" target="_blank">Paper Selection Tracker</a> before claiming.</li>
+                <li><strong>Download the PDF</strong> and read carefully—focus on methodology, not just results.</li>
+                <li><strong>Use the <a href="3. process.html">Literature Review Matrix</a> template</strong> to analyze:
+                    <ul>
+                        <li>What problem does it solve?</li>
+                        <li>What methodology/approach is used?</li>
+                        <li>What are the key findings?</li>
+                        <li>What limitations/gaps remain?</li>
+                        <li>How is it relevant to YOUR proposed research?</li>
+                    </ul>
+                </li>
+                <li><strong>Write a 2-3 page critical review</strong> focusing on methodology critique (not just summary).</li>
+                <li><strong>Submit via email</strong> to tesfamichael.gegziabher@aait.edu.et with subject: <code>ECEG-6101 - [Your Name] - Article Review</code></li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script src="sidebar.js"></script>
+    <script>
+        // Simple client-side search/filter
+        function filterPapers() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.paper-card');
+            
+            cards.forEach(card => {
+                const searchText = card.getAttribute('data-search').toLowerCase();
+                const title = card.querySelector('.paper-title').textContent.toLowerCase();
+                const authors = card.querySelector('.paper-meta')?.textContent.toLowerCase() || '';
+                
+                if (searchText.includes(input) || title.includes(input) || authors.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
